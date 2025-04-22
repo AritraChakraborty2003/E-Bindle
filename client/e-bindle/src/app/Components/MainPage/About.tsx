@@ -13,7 +13,7 @@ const AboutSection = () => {
   return (
     <div
       ref={ref}
-      className="mt-[10vmin] lg:mt-[20vmin] flex flex-wrap lg:pt-20 pb-20 w-full items-center justify-center  "
+      className="mt-[10vmin] lg:mt-[20vmin] flex flex-wrap  pb-10 lg:pt-20 lg:pb-20 w-full items-center justify-center  "
     >
       {/* Image Container */}
       <motion.div
@@ -100,7 +100,7 @@ const AboutSection = () => {
             <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-blue-700 ml-2">
               About Us
             </h2>
-            <p className="leading-[8vmin] lg:leading-[5.95vmin] w-[98%] font-sans p-2 text-md ">
+            <p className="leading-[9vmin] lg:leading-[5.6vmin] w-[98%] font-sans p-2 text-md ">
               <span className="font-bold">MAKING IDEAS TO REALITY.</span> We are
               the best Software solutions company which brings full options to
               build any software solution product you need.Present your digital

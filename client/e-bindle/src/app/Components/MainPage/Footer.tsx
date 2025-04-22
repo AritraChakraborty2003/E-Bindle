@@ -2,7 +2,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="mt-[30vmin] relative bg-[#1665d8] text-white overflow-hidden">
+    <footer className="mt-1 relative bg-[#1665d8] text-white overflow-hidden">
       {/* Responsive Wave SVG at the top */}
       <div className="w-full relative" style={{ zIndex: 1 }}>
         <svg

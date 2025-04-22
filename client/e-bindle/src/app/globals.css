@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 @import "tailwindcss";
 @import "remixicon/fonts/remixicon.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  font-family: "Funnel Sans", sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -31,4 +34,8 @@ body {
 html,
 body {
   overflow-x: hidden;
+}
+
+.slick-dots {
+  margin-top: "4vmin";
 }
