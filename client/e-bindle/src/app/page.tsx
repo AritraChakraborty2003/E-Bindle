@@ -7,6 +7,7 @@ import Projects from "./Components/MainPage/Projects";
 import WebsiteSEO from "./Components/MainPage/WebsiteSEO";
 import Testimonials from "./Components/MainPage/Testimonials";
 import Faq from "./Components/MainPage/Faq";
+import GetQoute from "./Components/MainPage/GetQoute";
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+
+      <GetQoute />
       <Services />
       <Projects />
       <WebsiteSEO />

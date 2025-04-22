@@ -90,11 +90,11 @@ const Header: React.FC = () => {
                 src={
                   headerState === "visible"
                     ? "/images/EBindleBlue.jpg"
-                    : "/images/EBindleWhite.jpg"
+                    : "/images/EBindleWhite1.jpg"
                 }
                 alt="E-Bindle Logo"
-                width={42}
-                height={42}
+                width={32}
+                height={32}
                 priority
               />
             </span>
