@@ -13,11 +13,9 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: "About us", href: "/about-us" },
+  { name: "Home", href: "/home" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
-  { name: "Team", href: "/team" },
-  { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -70,7 +68,7 @@ const Header: React.FC = () => {
           pauseOnHover
           className="h-9 bg-blue-600 border-b border-blue-500"
         >
-          <div className="flex items-center gap-8 mx-4 text-xs lg:text-md font-normal text-white">
+          <div className="flex items-center gap-8 mx-4 text-xs lg:text-[2vmin] font-normal text-white">
             <span>🚀 Welcome to E-Bindle!</span>
             <span>🌐 Your one-stop IT solution provider</span>
             <span>📞 Contact: +91 89008980809 </span>

@@ -8,6 +8,7 @@ import Projects from "./Components/MainPage/Projects/Projects";
 import Testimonials from "./Components/MainPage/Testinomials/Testimonials";
 import Faq from "./Components/MainPage/FAQ/Faq";
 import GetQoute from "./Components/MainPage/GetQoute";
+import Contact from "./Components/Contact/ContactPage";
 
 export default function Home() {
   return (
@@ -17,10 +18,11 @@ export default function Home() {
       <About />
       <Services />
       <GetQoute />
-      <Projects />
+      <Projects title="Our Projects" />
       <GetQoute />
       <Testimonials />
       <Faq />
+      <Contact />
       <Footer />
     </>
   );
