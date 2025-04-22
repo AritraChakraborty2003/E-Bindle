@@ -33,11 +33,11 @@ const Projects: React.FC<ProjectProps> = (props) => {
   ];
   return (
     <div className="relative overflow-hidden w-full h-full py-20 pb-20 mt-[-10.75vmin] lg:mt-[-2vmin]">
-      <p className="ml-3 text-[9vmin] font-bold">
+      <p className="ml-3 text-[9vmin] font-extrabold font-Poppins">
         {title.split(" ")[0]}
         <span className="text-blue-500 font-bold"> {title.split(" ")[1]}</span>
       </p>
-      <p className=" ml-3 text-md text-black letter-spacing-[1rem]">
+      <p className=" ml-3 text-xs lg:text-md text-black letter-spacing-[1rem] mt-1 ">
         ( Some of our recent client projects )
       </p>
 

@@ -56,10 +56,10 @@ export default function ContactPage() {
         animate={inView ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <p className="block lg:hidden mt-3 pl-3 text-[12vmin] font-bold">
-          Contact <span className="text-blue-600">Us</span>
+        <p className="block lg:hidden mt-8 pl-3 text-[12vmin] font-bold">
+          Contact <span className="text-blue-500">Us</span>
         </p>
-        <p className="block lg:hidden pl-3 text-sm font-normal">
+        <p className="block lg:hidden pl-4 text-sm font-normal">
           (We will be happy to hear from you)
         </p>
         <div className="min-h-screen lg:bg-blue-50 p-4 flex items-center justify-center mt-[-8vmin] lg:mt-0">
@@ -67,7 +67,7 @@ export default function ContactPage() {
             {/* Sidebar - Hidden on mobile */}
 
             <div className="hidden md:block md:w-1/2 p-10">
-              <p className="text-blue-600 mb-2 font-semibold">Contact Us</p>
+              <p className="text-blue-500 mb-2 font-semibold">Contact Us</p>
               <h1 className="text-5xl font-bold mb-6 text-black">
                 Get In Touch
               </h1>
@@ -114,7 +114,7 @@ export default function ContactPage() {
             {/* Form - Always visible */}
             <div className="w-full md:w-1/2 bg-blue-400/40 p-2 pt-10 pb-10 lg:p-10">
               <div className="mb-6">
-                <h2 className="text-2xl font-semibold text-blue-700 ml-2">
+                <h2 className="text-xl font-semibold text-blue-700 ml-2">
                   Please Fill the details...
                 </h2>
               </div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                     placeholder="Enter your message..."
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
+                    rows={5}
                     className="w-full p-4 border border-blue-100 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   ></textarea>

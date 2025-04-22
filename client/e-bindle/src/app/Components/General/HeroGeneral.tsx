@@ -11,7 +11,7 @@ const HeroGeneral: React.FC<HeroGeneralProps> = (props) => {
     <div className="relative w-[100vw] h-[90vh] lg:h-[99.9vh]">
       {/* Background Image */}
       <div
-        className=" absolute inset-0 bg-cover bg-left lg:bg-center bg-no-repeat"
+        className=" absolute inset-0 bg-cover bg-right lg:bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${image})` }}
       ></div>
 

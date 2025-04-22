@@ -5,6 +5,7 @@ import HeroGeneral from "../Components/General/HeroGeneral";
 import Projects from "../Components/MainPage/Projects/Projects";
 import GetQoute from "../Components/MainPage/GetQoute";
 import Testimonials from "../Components/MainPage/Testinomials/Testimonials";
+import ContactPage from "../Components/Contact/ContactPage";
 const page = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const page = () => {
       <Projects title="Latest Projects" />
       <GetQoute />
       <Testimonials />
+      <ContactPage />
       <Footer />
     </div>
   );

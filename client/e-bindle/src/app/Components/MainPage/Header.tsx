@@ -1,3 +1,4 @@
+// Header.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -6,6 +7,7 @@ import Image from "next/image";
 import Drawer from "react-modern-drawer";
 import Marquee from "react-fast-marquee";
 import "react-modern-drawer/dist/index.css";
+import QuoteModal from "./QoteModal";
 
 interface NavItem {
   name: string;
@@ -24,6 +26,7 @@ const Header: React.FC = () => {
     "initial" | "hidden" | "visible"
   >("initial");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,8 +116,8 @@ const Header: React.FC = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/get-quote"
+            <button
+              onClick={() => setIsQuoteModalOpen(true)}
               className={`ml-2 border-2 border-blue-600 rounded px-4 py-2 font-semibold transition-colors duration-200 ${
                 headerState === "visible"
                   ? "bg-white text-blue-600 hover:bg-blue-100"
@@ -122,7 +125,7 @@ const Header: React.FC = () => {
               }`}
             >
               Get A Quote
-            </Link>
+            </button>
           </nav>
 
           {/* Mobile Hamburger */}
@@ -195,18 +198,25 @@ const Header: React.FC = () => {
                 </li>
               ))}
               <li>
-                <Link
-                  href="/get-quote"
+                <button
+                  onClick={() => {
+                    setIsQuoteModalOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="block mt-2 border-2 border-blue-600 rounded px-4 py-2 text-blue-600 font-semibold text-center hover:bg-blue-50"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get A Quote
-                </Link>
+                </button>
               </li>
             </ul>
           </nav>
         </div>
       </Drawer>
+
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onRequestClose={() => setIsQuoteModalOpen(false)}
+      />
     </header>
   );
 };
