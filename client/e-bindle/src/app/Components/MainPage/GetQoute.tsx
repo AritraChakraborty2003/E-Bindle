@@ -13,7 +13,7 @@ const GetQoute = () => {
   return (
     <div
       ref={ref}
-      className="bg-gradient-to-br  from-blue-800 to-blue-400 text-white pb-[5vmin] pt-[5vmin]"
+      className="bg-gradient-to-br  from-blue-800 to-blue-400 text-white mt-8 pb-[5vmin] pt-[5vmin]"
     >
       <motion.div
         className="flex flex-col items-center justify-center py-20"
