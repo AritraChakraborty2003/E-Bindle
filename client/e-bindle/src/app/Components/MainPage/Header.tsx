@@ -1,3 +1,4 @@
+// Header.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -6,6 +7,7 @@ import Image from "next/image";
 import Drawer from "react-modern-drawer";
 import Marquee from "react-fast-marquee";
 import "react-modern-drawer/dist/index.css";
+import QuoteModal from "./QoteModal";
 
 interface NavItem {
   name: string;
@@ -13,11 +15,9 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: "About us", href: "/about-us" },
+  { name: "Home", href: "/home" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
-  { name: "Team", href: "/team" },
-  { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -26,6 +26,7 @@ const Header: React.FC = () => {
     "initial" | "hidden" | "visible"
   >("initial");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +71,7 @@ const Header: React.FC = () => {
           pauseOnHover
           className="h-9 bg-blue-600 border-b border-blue-500"
         >
-          <div className="flex items-center gap-8 mx-4 text-xs lg:text-md font-normal text-white">
+          <div className="flex items-center gap-8 mx-4 text-xs lg:text-[2vmin] font-normal text-white">
             <span>🚀 Welcome to E-Bindle!</span>
             <span>🌐 Your one-stop IT solution provider</span>
             <span>📞 Contact: +91 89008980809 </span>
@@ -115,8 +116,8 @@ const Header: React.FC = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/get-quote"
+            <button
+              onClick={() => setIsQuoteModalOpen(true)}
               className={`ml-2 border-2 border-blue-600 rounded px-4 py-2 font-semibold transition-colors duration-200 ${
                 headerState === "visible"
                   ? "bg-white text-blue-600 hover:bg-blue-100"
@@ -124,7 +125,7 @@ const Header: React.FC = () => {
               }`}
             >
               Get A Quote
-            </Link>
+            </button>
           </nav>
 
           {/* Mobile Hamburger */}
@@ -197,18 +198,25 @@ const Header: React.FC = () => {
                 </li>
               ))}
               <li>
-                <Link
-                  href="/get-quote"
+                <button
+                  onClick={() => {
+                    setIsQuoteModalOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="block mt-2 border-2 border-blue-600 rounded px-4 py-2 text-blue-600 font-semibold text-center hover:bg-blue-50"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get A Quote
-                </Link>
+                </button>
               </li>
             </ul>
           </nav>
         </div>
       </Drawer>
+
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onRequestClose={() => setIsQuoteModalOpen(false)}
+      />
     </header>
   );
 };

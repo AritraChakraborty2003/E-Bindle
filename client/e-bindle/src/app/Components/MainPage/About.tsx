@@ -47,9 +47,9 @@ const AboutSection = () => {
 
           {/* Smaller Ellipse (Bottom Right) */}
           <div
-            className="absolute right-0 bottom-0 overflow-hidden"
+            className="absolute right-[-1] bottom-0 overflow-hidden"
             style={{
-              width: "230px",
+              width: "210px",
               height: "160px",
               clipPath: "ellipse(48% 45% at 50% 50%)",
               boxShadow: "0 4px 16px 0 rgba(31, 38, 135, 0.07)",
