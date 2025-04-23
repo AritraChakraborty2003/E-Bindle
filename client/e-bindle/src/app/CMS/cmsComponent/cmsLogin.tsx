@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 
-const cmsLogin: React.FC = () => {
+const cmsLogin = () => {
   // TODO: Add login logic here
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 p-4">
-      <div className="bg-white rounded-xl shadow-lg p-8 max-w-md w-full">
+    <>
+    <div className="pb-10 pt-40 flex items-center justify-center bg-gradient-to-r p-4 ">
+      <div className="bg-blue-100 rounded-xl shadow-lg p-8 max-w-md w-full border-2 border-gray-300 transition-transform transform hover:scale-115 duration-400">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Admin Login</h1>
         <form className="space-y-6">
           <div>
@@ -19,7 +20,7 @@ const cmsLogin: React.FC = () => {
               name="username"
               required
               placeholder="Enter your username"
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:ring-1"
+              className=" bg-white mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:ring-1"
             />
           </div>
           <div>
@@ -32,18 +33,19 @@ const cmsLogin: React.FC = () => {
               name="password"
               required
               placeholder="Enter your password"
-              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:ring-1"
+              className="bg-white mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:ring-1"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-md text-lg font-semibold hover:bg-indigo-700 transition-colors duration-300"
+            className="w-full bg-indigo-600 text-white py-2 rounded-md text-lg font-semibold hover:bg-green-700 transition-colors duration-300 "
           >
             Login
           </button>
         </form>
       </div>
     </div>
+    </>
   );
 };
 
