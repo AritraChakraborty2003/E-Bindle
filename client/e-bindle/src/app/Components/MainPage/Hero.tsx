@@ -33,7 +33,7 @@ const Hero = () => {
     },
   ];
   return (
-    <div className="relative w-[100vw] min-h-[100vh] lg:h-[90vh]  2xl:h-[98vh] lg:w-[98.95vw] ">
+    <div className="relative w-[100vw] min-h-[100vh] lg:h-[90vh]  2xl:h-[98vh] lg:w-[100vw] 2xl:w-[100vw] ">
       {/* Background Image */}
       <div
         className=" absolute inset-0 bg-cover bg-left lg:bg-center bg-no-repeat"
@@ -51,7 +51,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="">
-          <p className="leading-10 lg:leading-[10vmin]  lg:w-[47vw] text-3xl 2xl:text-7xl font-medium lg:text-[7vmin] text-start ">
+          <p className="leading-10 lg:leading-[10vmin]  lg:w-[47vw] text-3xl 2xl:text-5xl font-medium lg:text-[7vmin] text-start ">
             Where Creativity Meets Cutting-Edge Technology
           </p>
         </div>

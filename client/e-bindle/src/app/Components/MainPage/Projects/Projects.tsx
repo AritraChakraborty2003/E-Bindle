@@ -37,7 +37,7 @@ const Projects: React.FC<ProjectProps> = (props) => {
         {title.split(" ")[0]}
         <span className="text-blue-500 font-bold"> {title.split(" ")[1]}</span>
       </p>
-      <p className=" ml-3 text-xs lg:text-md text-black letter-spacing-[1rem] mt-1 ">
+      <p className=" ml-3 text-sm lg:text-md text-black letter-spacing-[1rem] mt-1 ">
         ( Some of our recent client projects )
       </p>
 
