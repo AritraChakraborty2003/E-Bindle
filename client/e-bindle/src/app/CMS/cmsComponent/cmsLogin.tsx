@@ -33,7 +33,7 @@ const cmsLogin = () => {
               name="password"
               required
               placeholder="Enter your password"
-              className="bg-white mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:ring-1"
+              className="bg-white mt-2 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none focus:ring-1"
             />
           </div>
           <button
