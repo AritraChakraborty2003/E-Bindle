@@ -5,10 +5,10 @@ import bodyParser from "body-parser";
 import { generalRouter } from "./Routes/GeneralRouter/GeneralRouter.js";
 import { connectDB } from "./Connection/connectDB.js";
 import AboutRouter from "./Routes/AboutRouter/AboutRouter.js";
-import ServiceControllers from "./Routes/ServiceRouter/ServicesRoute.js";
 import ServicesRouter from "./Routes/ServiceRouter/ServicesRoute.js";
 import ProjectRouter from "./Routes/ProjectRouter/ProjectRouter.js";
 import ContactRouter from "./Routes/ContactRouter/ContactRouter.js";
+import AdminRouter from "./Routes/AdminRouter/AdminRouter.js";
 /*---- To access the .env file content----*/
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -26,8 +26,19 @@ connectDB(process.env.MONGODB_URI);
 /*------------------------*/
 
 /*----- Middleware -----*/
-app.use(cors());
+
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? process.env.CORS_ORIGIN // e.g., "https://yourdomain.com"
+        : "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json());
+app.use(express.json());
 
 /*----- Routes -----*/
 
@@ -36,5 +47,5 @@ app.use("/api/v1/about", AboutRouter);
 app.use("/api/v1/services", ServicesRouter);
 app.use("/api/v1/projects", ProjectRouter);
 app.use("/api/v1/contact", ContactRouter);
-
+app.use("/api/v1/admin", AdminRouter);
 /*--------------------*/
