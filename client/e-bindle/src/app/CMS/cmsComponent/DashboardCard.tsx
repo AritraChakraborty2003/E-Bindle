@@ -2,23 +2,34 @@
 import React from "react";
 import Image from "next/image";
 
-const ProjectCard = () => {
+
+interface DashboardCardProps{
+  item:{
+      id:number;
+      image: string;
+      title: string;
+      link: string;
+  },
+}
+
+const DashboardCard:React.FC<DashboardCardProps> = (props) => {
+  const {item} = props;
   return (
     <>
       <div className="pb-10 pt-40 flex items-center justify-center bg-gradient-to-r p-4 ">
         <div className="bg-blue-100 rounded-xl shadow-lg p-8 max-w-xs w-full border-2 border-gray-300 transition-transform transform hover:scale-105 duration-400 flex flex-col items-center">
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-            Add Projects
+            {item.title}
           </h1>
           <Image
-            src="/images/manageproject.svg"
+            src={item.image}
             alt="Project Image"
             width={150}
             height={150}
             className="object-cover mb-5"
           />
-          <button
-            type="submit"
+          <button onClick={() => window.location.href = item.link}
+            type="button"
             className="w-full bg-indigo-600 text-white py-2 rounded-md text-lg font-semibold hover:bg-green-700 transition-colors duration-300"
           >
             Add
@@ -29,4 +40,4 @@ const ProjectCard = () => {
   );
 };
 
-export default ProjectCard;
+export default DashboardCard;
