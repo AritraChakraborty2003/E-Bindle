@@ -70,7 +70,7 @@ const Services: React.FC = () => {
           <h2 className="text-4xl font-bold mb-4">
             We Understand Your Business
           </h2>
-          <p className="text-gray-600 max-w-2xl mb-8">
+          <p className="text-gray-600 max-w-2xl mb-8 lg:leading-[5.96vmin]">
             Our strategy includes consistently evolving to ensure we're
             producing exceptional SEO to business awesome services.
           </p>

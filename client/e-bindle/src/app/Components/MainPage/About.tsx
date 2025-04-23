@@ -101,11 +101,10 @@ const AboutSection = () => {
               About Us
             </h2>
             <p className="leading-[9vmin] lg:leading-[5.6vmin] w-[98%] font-sans p-2 text-md ">
-              <span className="font-bold">MAKING IDEAS TO REALITY.</span> We are
-              the best Software solutions company which brings full options to
-              build any software solution product you need.Present your digital
-              products, services, and solutions with our software solutions
-              company.
+              At e-bindle, we are a technology-driven service company
+              specializing in web, mobile app, SaaS, IoT, and AI solutions. Our
+              team empowers businesses to innovate and grow by delivering
+              scalable, secure, and intelligent digital products.
             </p>
           </div>
         </motion.div>

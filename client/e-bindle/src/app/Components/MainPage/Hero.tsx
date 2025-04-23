@@ -56,7 +56,7 @@ const Hero = () => {
           </p>
         </div>
         <div>
-          <p className="text-xs lg:text-sm  lg:w-[36vw] text-start leading-6 lg:leading-8">
+          <p className="text-xs lg:text-sm  lg:w-[36vw] 2xl:w-[35vw] text-start leading-6 lg:leading-8">
             We specialize in delivering cutting-edge IT solutions tailored to
             your business needs and requirements.From custom web and app
             development to all your software needs we do it all
