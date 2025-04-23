@@ -77,9 +77,9 @@ const Services: React.FC = () => {
         </div>
 
         {/* First row - 2 cards */}
-        <div className="flex flex-wrap -mx-4 mb-8">
+        <div className="flex flex-wrap -mx-4 mb-8 justify-center items-center">
           {firstRowServices.map((service) => (
-            <div key={service.id} className="w-full md:w-1/3 p-4">
+            <div key={service.id} className="w-full md:w-[40vw] p-4">
               <ServiceCard service={service} />
             </div>
           ))}
