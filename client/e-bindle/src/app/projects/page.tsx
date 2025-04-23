@@ -15,7 +15,10 @@ const page = () => {
         slogan="Home / Projects"
         image="/images/projects-bg-1.jpg"
       />
-      <Projects title="Latest Projects" />
+
+      <div className="lg:mt-[-7vmin]">
+        <Projects title="Latest Projects" />
+      </div>
       <GetQoute />
       <Testimonials />
       <ContactPage />

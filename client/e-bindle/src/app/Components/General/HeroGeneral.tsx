@@ -8,7 +8,7 @@ interface HeroGeneralProps {
 const HeroGeneral: React.FC<HeroGeneralProps> = (props) => {
   const { image, Title, slogan } = props;
   return (
-    <div className="relative w-[100vw] h-[90vh] lg:h-[99.9vh]">
+    <div className="relative w-[100vw] h-[90vh] lg:h-[92vh]">
       {/* Background Image */}
       <div
         className=" absolute inset-0 bg-cover bg-right lg:bg-center bg-no-repeat"
