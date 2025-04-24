@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 interface BoxDataProps {
   icon: string;
@@ -21,7 +22,7 @@ const RotatingBox: React.FC<BoxDataProps> = (props) => {
           position: "relative",
           width: "100%",
           height: "100%",
-          transition: "transform 0.6s",
+          transition: "transform 0.6s cubic-bezier(0.68,-0.55,0.27,1.55)",
           transformStyle: "preserve-3d",
         }}
       >
@@ -54,12 +55,11 @@ const RotatingBox: React.FC<BoxDataProps> = (props) => {
         </div>
         {/* Back Side */}
         <div
-          className="flip-card-back"
+          className="flip-card-back back-content"
           style={{
             position: "absolute",
             width: "100%",
             height: "100%",
-
             backfaceVisibility: "hidden",
             backgroundColor: "#2b7fff",
             color: "white",
@@ -70,16 +70,36 @@ const RotatingBox: React.FC<BoxDataProps> = (props) => {
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
+            justifyContent: "center",
           }}
         >
           <h2 className="mt-1 text-xl font-extrabold">{backTitle}</h2>
           <p className="mt-3 text-center text-[2.15vmin]">{backDescription}</p>
         </div>
       </div>
-      {/* CSS for hover effect */}
+      {/* CSS for 3D pop-out effect */}
       <style>{`
+        .flip-card {
+          perspective: 200vmin;
+        }
+        .flip-card-inner {
+          transition: transform 0.6s cubic-bezier(0.68,-0.55,0.27,1.55);
+          transform-style: preserve-3d;
+        }
         .flip-card:hover .flip-card-inner {
           transform: rotateX(180deg);
+        }
+        .flip-card-back .back-content {
+          transition: transform 0.6s cubic-bezier(0.68,-0.55,0.27,1.55), filter 0.3s;
+          will-change: transform;
+        }
+        .flip-card:hover .flip-card-back {
+          /* Pop out effect when flipped */
+          filter: drop-shadow(0 8px 24px rgba(43,127,255,0.3));
+        }
+        .flip-card:hover .flip-card-back {
+          /* Make the back content appear to come forward */
+          transform: rotateX(180deg) translateZ(40px) scale(1.05);
         }
       `}</style>
     </div>
