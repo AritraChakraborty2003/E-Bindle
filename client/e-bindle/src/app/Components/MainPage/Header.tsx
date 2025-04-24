@@ -71,7 +71,7 @@ const Header: React.FC = () => {
           pauseOnHover
           className="h-9 bg-blue-600 border-b border-blue-500"
         >
-          <div className="flex items-center gap-8 mx-4 text-xs lg:text-[1.95vmin] font-normal text-white">
+          <div className="flex items-center gap-8 mx-4 text-xs lg:text-[1.65vmin] font-normal text-white">
             <span>🚀 Welcome to E-Bindle!</span>
             <span>🌐 Your one-stop IT solution provider</span>
             <span>📞 Contact: +91 89008980809 </span>
