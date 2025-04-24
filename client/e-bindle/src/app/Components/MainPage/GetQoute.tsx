@@ -23,7 +23,7 @@ const GetQoute = () => {
       >
         <div className="flex flex-col gap-y-5 justify-center items-center">
           <h1 className="text-white font-bold text-4xl lg:text-5xl">
-            Get a Quote Now!!!
+            Get In Touch!!!
           </h1>
           <p className="text-white text-sm">
             (Get the E-solutions at the most afforable price)

@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div>
       <Header />
-      <div className="mt-[32vmin] lg:mt-20">
+      <div className="mt-[32vmin] lg:mt-24">
         <RightAnimation>
           <ContactPage />
         </RightAnimation>

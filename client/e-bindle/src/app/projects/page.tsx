@@ -11,7 +11,7 @@ const page = () => {
     <div>
       <Header />
       <HeroGeneral
-        Title="Projects"
+        Title="Our Projects"
         slogan="Home / Projects"
         image="/images/projects-bg-1.jpg"
       />
