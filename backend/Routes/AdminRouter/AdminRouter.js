@@ -9,14 +9,13 @@ import {
   updateAdminPassword,
 } from "../../Controllers/AdminController/AdminController.js";
 
-const AdminRouter = express.Router();
-
-// Public routes
+const AdminRouter = express.Router(); // Public routes
 AdminRouter.post("/register", registerInitialAdmin);
 AdminRouter.post("/login", loginAdmin);
-AdminRouter.post("/isLoggedin", protect, (req, res) => {
+AdminRouter.get("/isLoggedin", protect, (req, res) => {
   res.json({
     status: 200,
+    isLoggedIn: true,
     message: "user logged In",
   });
 });

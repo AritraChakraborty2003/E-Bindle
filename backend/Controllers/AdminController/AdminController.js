@@ -66,15 +66,15 @@ export const loginAdmin = async (req, res) => {
 
 // Admin logout
 export const logoutAdmin = (req, res) => {
+  console.log("HIt");
   res
     .clearCookie("adminToken", getCookieOptions())
     .json({ data: "Logged out successfully" });
 };
-
 // Protected middleware
 export const protect = async (req, res, next) => {
   const token = req.cookies?.adminToken;
-
+  console.log(req.cookies);
   if (!token) return res.status(401).json({ error: "Not authenticated" });
 
   try {
@@ -85,7 +85,7 @@ export const protect = async (req, res, next) => {
     res
       .clearCookie("adminToken", getCookieOptions())
       .status(401)
-      .json({ error: "Invalid token" });
+      .json({ isLoggedIn: false });
   }
 };
 

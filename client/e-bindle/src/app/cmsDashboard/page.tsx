@@ -1,56 +1,53 @@
-import React from 'react';
-import Header from '../Components/MainPage/Header';
-import Footer from '../Components/MainPage/Footer';
-import DashboardCard from '../CMS/cmsComponent/DashboardCard';
+import React from "react";
+
+import Footer from "../Components/MainPage/Footer";
+import DashboardCard from "../CMS/cmsComponent/DashboardCard";
+import CMSHeader from "../CMS/cmsComponent/CMSHeader";
 
 const cmsDashboard = () => {
   const data = [
     {
-        id:1,
-        image: "/images/addproject.jpg",
-        title: "Add Project",
-        link:"",
+      id: 1,
+      image: "/images/addproject.jpg",
+      title: "Add Project",
+      link: "",
     },
     {
-        id:2,
-        image: "/images/addadmin.jpg",
-        title: "Add Admin",
-        link:"",
+      id: 2,
+      image: "/images/addadmin.jpg",
+      title: "Add Admin",
+      link: "",
     },
     {
-      id:3,
+      id: 3,
       image: "/images/addadmin.jpg",
       title: "Add 1234",
-      link:"",
-  },
-  {
-    id:4,
-    image: "/images/addadmin.jpg",
-    title: "Add xyz",
-    link:"",
-  },
-  {
-    id:5,
-    image: "/images/addadmin.jpg",
-    title: "Add something",
-    link:"",
-  },
-];
+      link: "",
+    },
+    {
+      id: 4,
+      image: "/images/addadmin.jpg",
+      title: "Add xyz",
+      link: "",
+    },
+    {
+      id: 5,
+      image: "/images/addadmin.jpg",
+      title: "Add something",
+      link: "",
+    },
+  ];
   return (
-    <>  
-    
-        <Header />
-        
-        <div className="container flex gap-[4vmin] justify-center flex-wrap mt-[25vmin] lg:mt-[20vmin]">
-          {
-            data.map((item, index) => (
-              <DashboardCard key={index} item={item} />
-            ))}
-       
-       </div>
-               
-          <Footer />
-      
+    <>
+      <CMSHeader />
+
+      <div className="container flex gap-[4vmin] justify-center flex-wrap mt-[25vmin] lg:mt-[20vmin]">
+        {data.map((item, index) => (
+          <DashboardCard key={index} item={item} />
+        ))}
+      </div>
+
+      <Footer />
     </>
   );
 };

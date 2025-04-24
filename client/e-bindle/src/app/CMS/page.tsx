@@ -1,20 +1,18 @@
-
-import React from 'react'
-import CmsLogin from './cmsComponent/cmsLogin'
-import Header from '../Components/MainPage/Header'
-import Footer from '../Components/MainPage/Footer'
-
+import React from "react";
+import CmsLogin from "./cmsComponent/cmsLogin";
+import Footer from "../Components/MainPage/Footer";
+import CMSHeader from "./cmsComponent/CMSHeader";
 
 const page = () => {
   return (
     <>
-    <div>
-      <Header />
-      <CmsLogin />
-      <Footer />
-    </div>
+      <div>
+        <CMSHeader />
+        <CmsLogin />
+        <Footer />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

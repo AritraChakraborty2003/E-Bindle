@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import { generalRouter } from "./Routes/GeneralRouter/GeneralRouter.js";
 import { connectDB } from "./Connection/connectDB.js";
@@ -39,9 +40,9 @@ app.use(
 
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cookieParser());
 
 /*----- Routes -----*/
-
 app.use("/api/v1/", generalRouter);
 app.use("/api/v1/about", AboutRouter);
 app.use("/api/v1/services", ServicesRouter);
