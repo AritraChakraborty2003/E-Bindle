@@ -15,7 +15,6 @@ const CMSHeader = () => {
       const loggedIn = await checkIsLoggedIn();
 
       setIsLoggedIn(loggedIn);
-      router.push("/cmsdashboard");
     }
     fetchStatus();
   });
@@ -38,13 +37,15 @@ const CMSHeader = () => {
     <>
       <div className="w-[100vw] flex bg-blue-600 p-3 text-white">
         <div className="w-1/2 flex justify-start">
-          <Image
-            src={"/images/EBindleBlue.jpg"}
-            alt="E-Bindle Logo"
-            width={32}
-            height={32}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src={"/images/EBindleBlue.jpg"}
+              alt="E-Bindle Logo"
+              width={32}
+              height={32}
+              priority
+            />
+          </Link>
         </div>
         <div className="w-1/2 flex justify-end mr-2 lg:mr-10">
           {isLoggedIn ? (

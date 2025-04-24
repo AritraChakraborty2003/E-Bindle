@@ -71,7 +71,7 @@ const Header: React.FC = () => {
           pauseOnHover
           className="h-9 bg-blue-600 border-b border-blue-500"
         >
-          <div className="flex items-center gap-8 mx-4 text-xs lg:text-[2vmin] font-normal text-white">
+          <div className="flex items-center gap-8 mx-4 text-xs lg:text-[1.95vmin] font-normal text-white">
             <span>🚀 Welcome to E-Bindle!</span>
             <span>🌐 Your one-stop IT solution provider</span>
             <span>📞 Contact: +91 89008980809 </span>
@@ -84,9 +84,15 @@ const Header: React.FC = () => {
       {/* Main Header (Logo + Nav) - visible when not hidden */}
       {showHeader && (
         <div className="max-w-7xl mx-auto flex items-center justify-between px-1 md:px-5 py-2 lg:py-3">
-          {/* Logo */}
-          <Link href="/" aria-label="Home" className="flex items-center">
-            <span className="inline-block align-middle mr-3">
+          {/* Logo + Text */}
+          <div className="flex items-center gap-2">
+            {/* Logo icon */}
+            <span
+              className="inline-block align-middle z-[200] relative transition-all duration-300"
+              style={{
+                marginLeft: headerState === "visible" ? "-8px" : "0",
+              }}
+            >
               <Image
                 src={
                   headerState === "visible"
@@ -94,20 +100,24 @@ const Header: React.FC = () => {
                     : "/images/EBindleWhite1.jpg"
                 }
                 alt="E-Bindle Logo"
-                width={32}
-                height={32}
+                width={42}
+                height={42}
                 priority
+                className={`transition-all duration-300 ${
+                  headerState === "visible" ? "scale-110" : "scale-100"
+                }`}
               />
             </span>
-            {/* Show text only in initial state */}
+            {/* Text for initial state */}
             {headerState !== "visible" && (
               <span
-                className={`font-bold  tracking-tight ${textClass} text-md lg:text-2xl mt-2`}
+                className={`font-bold tracking-tight ${textClass} text-md lg:text-2xl`}
+                style={{ marginLeft: 0, marginTop: 0, alignSelf: "center" }}
               >
                 E-Bindle
               </span>
             )}
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-3 ml-5">

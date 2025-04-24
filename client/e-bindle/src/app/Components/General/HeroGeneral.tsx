@@ -21,8 +21,8 @@ const HeroGeneral: React.FC<HeroGeneralProps> = (props) => {
       {/* Text Content (Ensures Readability) */}
       <div className=" absolute inset-0 left-3 mt-16  lg:mt-15 lg:left-10 flex flex-col items-start justify-center gap-y-4  text-white text-center">
         <div className="">
-          <p className="leading-[20vmin]  text-[15vmin] lg:text-[10vmin] lg:leading-[8.75vmin]  lg:w-[47vw]  2xl:text-7xl font-medium  text-start ">
-          {Title}
+          <p className="leading-[17vmin]  text-[20vmin] lg:text-[11vmin] lg:leading-[13vmin]  lg:w-[47vw]  2xl:text-7xl font-medium  text-start ">
+            {Title}
           </p>
         </div>
         <div>

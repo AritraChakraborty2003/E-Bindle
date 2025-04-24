@@ -11,8 +11,6 @@ const CmsLogin = () => {
     const email = (document.getElementById("email") as HTMLInputElement)?.value;
     const password = (document.getElementById("password") as HTMLInputElement)
       ?.value;
-
-    console.log(process.env.NEXT_PUBLIC_API_URL_TEST);
     const res = await axios.post(
       process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/admin/login",
       {
