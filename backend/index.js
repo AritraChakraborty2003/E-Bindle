@@ -13,6 +13,8 @@ import AdminRouter from "./Routes/AdminRouter/AdminRouter.js";
 import InTouch from "./models/InTouch.js";
 import InTouchRouter from "./Routes/InTouchRouter/InTouchRouter.js";
 import MessageRouter from "./Routes/MessageRouter/MessageRouter.js";
+import TestimonialRouter from "./Routes/TestimonialRouter/TestimonialRouter.js";
+import QouteRouter from "./Routes/QouteRouter/QouteRouter.js";
 /*---- To access the .env file content----*/
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -54,6 +56,6 @@ app.use("/api/v1/contact", ContactRouter);
 app.use("/api/v1/admin", AdminRouter);
 app.use("/api/v1/intouch", InTouchRouter);
 app.use("/api/v1/message", MessageRouter);
-app.use("/api/v1/testimonials");
-app.use("/api/v1/qoute");
+app.use("/api/v1/testimonials", TestimonialRouter);
+app.use("/api/v1/qoute", QouteRouter);
 /*--------------------*/

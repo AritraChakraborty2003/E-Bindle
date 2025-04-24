@@ -5,7 +5,7 @@ import {
   createInTouch,
   updateInTouchById,
   deleteInTouchById,
-} from "../../Controllers/InTouchController.js";
+} from "../../Controllers/InTouchController/InTouchController.js";
 
 const InTouchRouter = express.Router();
 

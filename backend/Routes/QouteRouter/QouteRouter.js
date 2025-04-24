@@ -5,7 +5,7 @@ import {
   createQoute,
   updateQouteById,
   deleteQouteById,
-} from "../controllers/qouteController.js";
+} from "../../Controllers/QouteController/QouteController.js";
 
 const QouteRouter = express.Router();
 
