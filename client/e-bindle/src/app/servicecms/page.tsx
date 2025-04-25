@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
-import CMSHeader from "../cms/cmsComponent/CMSHeader";
+import CMSHeader from "../CMS/cmsComponent/CMSHeader";
 import Footer from "../Components/MainPage/Footer";
 
 const ServiceCMS = () => {

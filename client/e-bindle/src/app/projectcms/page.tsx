@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import Footer from "../Components/MainPage/Footer";
-import CMSHeader from "../cms/cmsComponent/CMSHeader";
+import CMSHeader from "../CMS/cmsComponent/CMSHeader";
 
 const ProjectCMS = () => {
   const [activeTab, setActiveTab] = useState("add");

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import Footer from "../Components/MainPage/Footer";
-import DashboardCard from "../cms/cmsComponent/DashboardCard";
+import DashboardCard from "../CMS/cmsComponent/DashboardCard";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { checkIsLoggedIn } from "../cms/cmsComponent/utils/checkIsLoggedIn";
-import CMSHeader from "../cms/cmsComponent/CMSHeader";
+import { checkIsLoggedIn } from "../CMS/cmsComponent/utils/checkIsLoggedIn";
+import CMSHeader from "../CMS/cmsComponent/CMSHeader";
 
 const CmsDashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
