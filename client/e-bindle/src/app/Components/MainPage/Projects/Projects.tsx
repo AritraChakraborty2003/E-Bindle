@@ -13,7 +13,7 @@ const Projects: React.FC<ProjectProps> = (props) => {
 
   useEffect(() => {
     axios
-      .get("https://api.codemap.online/", { withCredentials: true })
+      .get("https://jsonplaceholder.typicode.com/todos/3")
       .then((response) => {
         console.log("Response:", response);
         setData(response.data);
