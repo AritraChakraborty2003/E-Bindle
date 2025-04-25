@@ -3,15 +3,21 @@ import Header from "../Components/MainPage/Header";
 import ContactPage from "../Components/Contact/ContactPage";
 import Footer from "../Components/MainPage/Footer";
 import RightAnimation from "../Animations/RightAnimation";
+import HeroGeneral from "../Components/General/HeroGeneral";
 const page = () => {
   return (
     <div>
       <Header />
-      <div className="mt-[32vmin] lg:mt-24">
-        <RightAnimation>
-          <ContactPage />
-        </RightAnimation>
-      </div>
+      <HeroGeneral
+        Title="Contact Us"
+        slogan="Home / Contact Us"
+        image="/images/contact1.avif"
+      />
+
+      <RightAnimation>
+        <ContactPage />
+      </RightAnimation>
+
       <Footer />
     </div>
   );

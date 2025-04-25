@@ -1,6 +1,5 @@
 // Header.tsx
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -85,28 +84,30 @@ const Header: React.FC = () => {
       {showHeader && (
         <div className="max-w-7xl mx-auto flex items-center justify-between px-1 md:px-5 py-2 lg:py-3">
           {/* Logo + Text */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-start gap-2">
             {/* Logo icon */}
             <span
-              className="inline-block align-middle z-[200] relative transition-all duration-300"
+              className="inline-block align-middle  relative transition-all duration-300"
               style={{
-                marginLeft: headerState === "visible" ? "-8px" : "0",
+                marginLeft: headerState === "visible" ? "-10px" : "0",
               }}
             >
-              <Image
-                src={
-                  headerState === "visible"
-                    ? "/images/EBindleBlue.jpg"
-                    : "/images/EBindleWhite1.jpg"
-                }
-                alt="E-Bindle Logo"
-                width={42}
-                height={42}
-                priority
-                className={`transition-all duration-300 ${
-                  headerState === "visible" ? "scale-110" : "scale-100"
-                }`}
-              />
+              <Link href="/">
+                <Image
+                  src={
+                    headerState === "visible"
+                      ? "/images/EBindleBlue.jpg"
+                      : "/images/EBindleWhite1.jpg"
+                  }
+                  alt="E-Bindle Logo"
+                  width={36}
+                  height={36}
+                  priority
+                  className={`transition-all duration-300 cursor-pointer ml-3 lg:ml-0 ${
+                    headerState === "visible" ? "scale-110" : "scale-100"
+                  }`}
+                />
+              </Link>
             </span>
             {/* Text for initial state */}
             {headerState !== "visible" && (
@@ -114,7 +115,9 @@ const Header: React.FC = () => {
                 className={`font-bold tracking-tight ${textClass} text-md lg:text-2xl`}
                 style={{ marginLeft: 0, marginTop: 0, alignSelf: "center" }}
               >
-                E-Bindle
+                <Link href="/" className="cursor-pointer">
+                  E-Bindle
+                </Link>
               </span>
             )}
           </div>

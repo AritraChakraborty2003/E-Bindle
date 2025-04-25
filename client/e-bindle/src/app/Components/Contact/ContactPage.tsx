@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <h1 className="text-5xl font-bold mb-6 text-black">
                   Get In Touch
                 </h1>
-                <p className="text-gray-700 mb-8 leading-7">
+                <p className="text-gray-700 mb-8 leading-9">
                   We'd love to hear from you! Whether you have a question,
                   suggestion, or need support, our team is here to help. Please
                   feel free to reach out to us through any of the following
@@ -115,11 +115,11 @@ export default function ContactPage() {
               {/* Form - Always visible */}
               <div className="w-full md:w-1/2 bg-blue-400/40 p-2 pt-10 pb-10 lg:p-10 mt-1 lg:mt-0">
                 <div className="mb-2 lg:mb-6">
-                  <h2 className="text-xl font-semibold text-blue-700 ml-2">
+                  <h2 className="text-xl font-semibold text-blue-700 ml-2 lg:mt-5">
                     Please Fill the details...
                   </h2>
                 </div>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-9">
                   <div>
                     <input
                       type="text"

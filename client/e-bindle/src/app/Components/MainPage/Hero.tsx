@@ -51,7 +51,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="">
-          <p className="leading-10 lg:leading-[9vmin]  lg:w-[47vw] text-3xl 2xl:text-5xl font-medium lg:text-[6vmin] text-start ">
+          <p className="leading-10 lg:leading-[9vmin]  lg:w-[47vw] text-2xl 2xl:text-5xl font-medium lg:text-[6vmin] text-start ">
             Where Creativity Meets Cutting-Edge Technology
           </p>
         </div>
