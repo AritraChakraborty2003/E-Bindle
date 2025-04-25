@@ -6,15 +6,15 @@ import { useInView } from "react-intersection-observer";
 
 interface ProjectProps {
   project: {
-    image: string;
+    images: [string];
     title: string;
-    description: string;
+    descr: string;
     link: string;
     delay: number;
   };
 }
 const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
-  const { image, title, description, link, delay } = project;
+  const { images, title, descr, link, delay } = project;
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
               <div className="w-[70%] pb-10 pt-10">
                 <Image
                   className="w-full h-full object-cover"
-                  src={image}
+                  src={process.env.NEXT_PUBLIC_API_URL_TEST + images[0]}
                   alt="Project Image"
                   width={500}
                   height={500}
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
               </p>
 
               <p className="ml-3 text-gray-500 mt-2 text-md pb-2 leading-[4vmin] pl-1">
-                {description}
+                {descr}
               </p>
             </div>
 
