@@ -13,14 +13,10 @@ const Projects: React.FC<ProjectProps> = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/projects"
-        );
-        setData(res.data);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
+      const res = await axios.get(
+        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/projects"
+      );
+      setData(res.data);
     };
     fetchData();
   }, []);
