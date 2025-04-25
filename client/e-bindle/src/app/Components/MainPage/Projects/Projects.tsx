@@ -12,14 +12,15 @@ const Projects: React.FC<ProjectProps> = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.get(
-        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/projects",
-        { withCredentials: true }
-      );
-      setData(res.data);
-    };
-    fetchData();
+    axios
+      .get("https://api.e-bindle.in/api/v1/projects", { withCredentials: true })
+      .then((response) => {
+        console.log("Response:", response);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }, []);
   const { title } = props;
   const projects = [
