@@ -7,7 +7,7 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import { useInView } from "react-intersection-observer";
-
+import axios from "axios";
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -48,6 +48,18 @@ export default function ContactPage() {
       message: "",
     });
   };
+
+  async function postMessage() {
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/intouch",
+        formData
+      );
+      if (response.status === 200 || response.status === 201) alert("done");
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <>
@@ -167,6 +179,9 @@ export default function ContactPage() {
                   <div className="flex justify-center mt-6">
                     <button
                       type="submit"
+                      onClick={() => {
+                        postMessage();
+                      }}
                       className="bg-blue-600 text-white py-3 px-12 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                     >
                       Submit

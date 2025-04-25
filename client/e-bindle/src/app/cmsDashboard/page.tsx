@@ -50,6 +50,12 @@ const CmsDashboard = () => {
     },
     {
       id: 5,
+      image: "/images/testimonial.png",
+      title: "Testimonial CMS",
+      link: "/testimonialcms",
+    },
+    {
+      id: 5,
       image: "/images/intouch.png",
       title: "In Touch CMS",
       link: "/intouchcms",

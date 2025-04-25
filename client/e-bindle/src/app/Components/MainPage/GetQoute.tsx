@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
 
 const GetQoute = () => {
   const { ref, inView } = useInView({
@@ -9,6 +10,20 @@ const GetQoute = () => {
     threshold: 0.2,
     rootMargin: "-50px 0px",
   });
+
+  async function postInTouch(email: string) {
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/intouch",
+        { email }
+      );
+      console.log(response.data);
+      // handle success (e.g., show a message)
+    } catch (error) {
+      console.error(error);
+      // handle error (e.g., show error message)
+    }
+  }
 
   return (
     <div
@@ -31,10 +46,19 @@ const GetQoute = () => {
           <div className="flex">
             <input
               type="text"
+              id="email"
               className="w-[70vw] lg:w-[46vw] p-3 bg-white text-black focus:outline-none  mt-4"
               placeholder="Enter your email"
             />
-            <div className=" bg-blue-300 p-3 mt-4">
+            <div
+              className=" bg-blue-300 p-3 mt-4"
+              onClick={() => {
+                const email =
+                  (document.getElementById("email") as HTMLInputElement)
+                    ?.value || "";
+                postInTouch(email);
+              }}
+            >
               <i className="ri-send-plane-fill text-lg"></i>
             </div>
           </div>
