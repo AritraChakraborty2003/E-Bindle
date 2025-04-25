@@ -10,28 +10,23 @@ import Faq from "./Components/MainPage/FAQ/Faq";
 import GetQoute from "./Components/MainPage/GetQoute";
 import Contact from "./Components/Contact/ContactPage";
 import Loader from "./Components/MainPage/Loader";
-import { useState } from "react";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
   return (
     <>
-      {loading && <Loader onFinish={() => setLoading(false)} />}
-      {!loading && (
-        <>
-          <Header />
-          <Hero />
-          <About />
-          <Services />
-          <GetQoute />
-          <Projects title="Our Projects" />
-          <GetQoute />
-          <Testimonials />
-          <Faq />
-          <Contact />
-          <Footer />
-        </>
-      )}
+      <Loader>
+        <Header />
+        <Hero />
+        <About />
+        <Services />
+        <GetQoute />
+        <Projects title="Our Projects" />
+        <GetQoute />
+        <Testimonials />
+        <Faq />
+        <Contact />
+        <Footer />
+      </Loader>
     </>
   );
 }
