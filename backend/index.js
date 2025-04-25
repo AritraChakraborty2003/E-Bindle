@@ -42,7 +42,7 @@ app.use(
     credentials: true,
   })
 );
-
+app.use(express.static("uploads"));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());

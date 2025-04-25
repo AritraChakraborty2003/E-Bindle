@@ -33,9 +33,22 @@ export const createAbout = async (req, res) => {
         .status(400)
         .json({ success: false, error: "Section is required" });
     }
-    const about = await About.create(req.body);
+
+    const { section, title, descr, mainTitle } = req.body;
+
+    const image = req.file.filename;
+    const about = new About({
+      section: section,
+      image: image,
+      title: title,
+      descr: descr,
+      mainTitle: mainTitle,
+    });
+
+    about.save();
     res.status(201).json({ success: true, data: about });
   } catch (error) {
+    console.log(error);
     res.status(400).json({ success: false, error: error.message });
   }
 };
@@ -43,12 +56,23 @@ export const createAbout = async (req, res) => {
 // Patch (update) About entry by section (cannot update section itself)
 export const patchAboutBySection = async (req, res) => {
   try {
-    if ("section" in req.body) delete req.body.section; // Prevent section modification
+    // Prevent section modification
+    if ("section" in req.body) delete req.body.section;
+
+    // Build update object
+    const updateData = { ...req.body };
+
+    // If a new image file is uploaded, update the image field
+    if (req.file && req.file.filename) {
+      updateData.image = req.file.filename;
+    }
+
     const updatedAbout = await About.findOneAndUpdate(
       { section: req.params.section },
-      { $set: req.body },
+      { $set: updateData },
       { new: true, runValidators: true }
     );
+
     if (!updatedAbout) {
       return res
         .status(404)
