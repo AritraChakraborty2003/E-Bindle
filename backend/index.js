@@ -50,6 +50,7 @@ app.use(cookieParser());
 
 /*----- Routes -----*/
 app.use("/", generalRouter);
+app.use("/api/v1", generalRouter);
 app.use("/api/v1/about", AboutRouter);
 app.use("/api/v1/services", ServicesRouter);
 app.use("/api/v1/projects", ProjectRouter);
