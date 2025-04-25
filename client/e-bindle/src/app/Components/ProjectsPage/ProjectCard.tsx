@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
               <div className="w-[70%] pb-10 pt-10">
                 <Image
                   className="w-full h-full object-cover"
-                  src={process.env.NEXT_PUBLIC_API_URL_TEST + images[0]}
+                  src={"https://api.e-bindle.in/" + images[0]}
                   alt="Project Image"
                   width={500}
                   height={500}
