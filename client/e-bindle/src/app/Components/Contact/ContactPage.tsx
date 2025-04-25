@@ -75,7 +75,7 @@ export default function ContactPage() {
           animate={inView ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="min-h-screen lg:bg-blue-50 p-4 flex items-center justify-center mt-[-8vmin] lg:mt-0 lg:pt-8 lg:pb-8">
+          <div className="min-h-screen  p-4 flex items-center justify-center mt-[-8vmin] lg:mt-0 lg:pt-8 lg:pb-8">
             <div className="container mx-auto max-w-6xl bg-white rounded-lg shadow-md flex flex-col md:flex-row overflow-hidden">
               {/* Sidebar - Hidden on mobile */}
 
