@@ -10,7 +10,6 @@ import ServicesRouter from "./Routes/ServiceRouter/ServicesRoute.js";
 import ProjectRouter from "./Routes/ProjectRouter/ProjectRouter.js";
 import ContactRouter from "./Routes/ContactRouter/ContactRouter.js";
 import AdminRouter from "./Routes/AdminRouter/AdminRouter.js";
-import InTouch from "./models/InTouch.js";
 import InTouchRouter from "./Routes/InTouchRouter/InTouchRouter.js";
 import MessageRouter from "./Routes/MessageRouter/MessageRouter.js";
 import TestimonialRouter from "./Routes/TestimonialRouter/TestimonialRouter.js";
