@@ -20,6 +20,8 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
     rootMargin: "-50px 0px",
   });
 
+  console.log(images[0]);
+
   return (
     <div ref={ref}>
       <motion.div
