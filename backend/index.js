@@ -32,17 +32,17 @@ connectDB(process.env.MONGODB_URI);
 
 /*----- Middleware -----*/
 
-// app.use(
-//   cors({
-//     origin:
-//       process.env.NODE_ENV === "production"
-//         ? "https://e-bindle.in" // e.g., "https://yourdomain.com"
-//         : "http://localhost:3000",
-//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://e-bindle.in" // e.g., "https://yourdomain.com"
+        : "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 app.use(express.static("uploads"));
 app.use(bodyParser.json());
 app.use(express.json());
