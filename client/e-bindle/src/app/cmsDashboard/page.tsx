@@ -82,7 +82,7 @@ const CmsDashboard = () => {
   return (
     <>
       <CMSHeader />
-      <div className="container flex w-[100vw] lg:gap-[6vmin] justify-center flex-wrap mt-[15vmin] lg:mt-[10vmin] lg:ml-[10vmin] -ml-[6]">
+      <div className="container flex w-[100vw] lg:gap-[6vmin] justify-center flex-wrap mt-[15vmin] lg:mt-[10vmin] lg:ml-[10vmin] 2xl:ml-2 -ml-[6]">
         {data.map((item, index) => (
           <DashboardCard key={index} item={item} />
         ))}
