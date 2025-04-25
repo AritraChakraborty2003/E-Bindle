@@ -14,7 +14,8 @@ const Projects: React.FC<ProjectProps> = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(
-        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/projects"
+        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/projects",
+        { withCredentials: true }
       );
       setData(res.data);
     };
