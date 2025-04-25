@@ -1,12 +1,29 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import ProjectCard from "../../ProjectsPage/ProjectCard";
+import axios from "axios";
 
 interface ProjectProps {
   title: string;
 }
 // import { Carousel } from "./ProjectsCarousel";
 const Projects: React.FC<ProjectProps> = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/projects"
+        );
+        setData(res.data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+    fetchData();
+  }, []);
   const { title } = props;
   const projects = [
     {
@@ -32,21 +49,27 @@ const Projects: React.FC<ProjectProps> = (props) => {
     },
   ];
   return (
-    <div className="relative overflow-hidden w-full h-full py-20 pb-20 mt-[-10.75vmin] lg:mt-[-2vmin]">
-      <p className="ml-3 text-[7vmin] font-extrabold font-Poppins">
-        {title.split(" ")[0]}
-        <span className="text-blue-500 font-bold"> {title.split(" ")[1]}</span>
-      </p>
-      <p className=" ml-3 text-sm lg:text-md text-black letter-spacing-[1rem] mt-1 ">
-        ( Some of our recent client projects )
-      </p>
+    <>
+      {console.log("data:", data)}
+      <div className="relative overflow-hidden w-full h-full py-20 pb-20 mt-[-10.75vmin] lg:mt-[-2vmin]">
+        <p className="ml-3 text-[7vmin] font-extrabold font-Poppins">
+          {title.split(" ")[0]}
+          <span className="text-blue-500 font-bold">
+            {" "}
+            {title.split(" ")[1]}
+          </span>
+        </p>
+        <p className=" ml-3 text-sm lg:text-md text-black letter-spacing-[1rem] mt-1 ">
+          ( Some of our recent client projects )
+        </p>
 
-      <div className="mt-8 flex  flex-wrap justify-evenly items-center gap-x-3  gap-y-6">
-        {projects.map((item, index) => (
-          <ProjectCard key={index} project={item} />
-        ))}
+        <div className="mt-8 flex  flex-wrap justify-evenly items-center gap-x-3  gap-y-6">
+          {projects.map((item, index) => (
+            <ProjectCard key={index} project={item} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
