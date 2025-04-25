@@ -26,39 +26,39 @@ const CmsDashboard = () => {
   const data = [
     {
       id: 1,
-      image: "/images/addproject.jpg",
-      title: "Add Project",
-      link: "",
+      image: "/images/projects.png",
+      title: "Add Projects",
+      link: "/projectcms",
     },
     {
       id: 2,
-      image: "/images/addadmin.jpg",
+      image: "/images/admin.png",
       title: "Add Admin",
-      link: "",
+      link: "/AdminCMS",
     },
     {
       id: 3,
-      image: "/images/addadmin.jpg",
-      title: "Add 1234",
-      link: "",
+      image: "/images/about_icon.webp",
+      title: "Add About",
+      link: "/aboutcms",
     },
     {
       id: 4,
-      image: "/images/addadmin.jpg",
-      title: "Add xyz",
-      link: "",
+      image: "/images/service.png",
+      title: "Add Services",
+      link: "/ServicesCMS",
     },
     {
       id: 5,
-      image: "/images/addadmin.jpg",
-      title: "Add something",
-      link: "",
+      image: "/images/phone.png",
+      title: "Add Contact",
+      link: "/ContactCMS",
     },
   ];
   return (
     <>
       <CMSHeader />
-      <div className="container flex gap-[4vmin] justify-center flex-wrap mt-[25vmin] lg:mt-[10vmin]">
+      <div className="container flex w-[100vw] lg:gap-[6vmin] justify-center flex-wrap mt-[15vmin] lg:mt-[10vmin] lg:ml-[10vmin] -ml-[6]">
         {data.map((item, index) => (
           <DashboardCard key={index} item={item} />
         ))}

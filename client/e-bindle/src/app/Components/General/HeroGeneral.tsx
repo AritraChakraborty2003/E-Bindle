@@ -8,7 +8,7 @@ interface HeroGeneralProps {
 const HeroGeneral: React.FC<HeroGeneralProps> = (props) => {
   const { image, Title, slogan } = props;
   return (
-    <div className="relative w-[100vw] h-[90vh] lg:h-[94vh] 2xl:h-[100vh]">
+    <div className="relative w-[100vw] h-[90vh] lg:h-[100vh] 2xl:h-[100vh]">
       {/* Background Image */}
       <div
         className=" absolute inset-0 bg-cover bg-right lg:bg-center bg-no-repeat"
@@ -19,9 +19,9 @@ const HeroGeneral: React.FC<HeroGeneralProps> = (props) => {
       <div className=" absolute inset-0 bg-black/62"></div>
 
       {/* Text Content (Ensures Readability) */}
-      <div className=" absolute inset-0 left-3 mt-16  lg:mt-15 lg:left-10 flex flex-col items-start justify-center gap-y-4  text-white text-center">
-        <div className="">
-          <p className="leading-[24vmin]  text-[18vmin] lg:text-[11vmin] 2xl:text-[12vmin]  lg:leading-[13vmin] 2xl:leading-[16vmin]  lg:w-[47vw]  2xl:text-7xl font-medium  text-start">
+      <div className=" absolute inset-0 left-3 mt-16  border-white    lg:mt-15 lg:left-10 flex flex-col items-start justify-center gap-y-4  text-white text-center">
+        <div className="w-[100vw]">
+          <p className="leading-[24vmin]  text-[18vmin] lg:text-[12vmin] 2xl:text-[13.75vmin]  lg:leading-[18vmin] 2xl:leading-[16vmin]  lg:w-[47vw]  2xl:text-7xl font-bold  text-start">
             {Title}
           </p>
         </div>

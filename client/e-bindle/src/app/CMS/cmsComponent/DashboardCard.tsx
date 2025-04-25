@@ -15,8 +15,8 @@ const DashboardCard: React.FC<DashboardCardProps> = (props) => {
   const { item } = props;
   return (
     <>
-      <div className="flex items-center justify-center bg-gradient-to-r ml-5 p-3 ">
-        <div className="bg-blue-100 rounded-xl shadow-lg p-8 w-[20vw] lg:h-[40vmin] border-2 border-gray-300 transition-transform transform hover:scale-105 duration-400 flex flex-col items-center">
+      <div className="flex items-center justify-center bg-gradient-to-r lg:ml-5 p-3 ">
+        <div className="bg-blue-100 rounded-xl shadow-lg p-8 w-[85vw] lg:w-[20vw] lg:h-[40vmin] border-2 border-gray-300 transition-transform transform hover:scale-105 duration-400 flex flex-col items-center">
           <h1 className="text-xl font-bold text-center text-gray-800 mb-6">
             {item.title}
           </h1>
