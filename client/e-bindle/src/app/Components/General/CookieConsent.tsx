@@ -21,7 +21,8 @@ export default function CookieConsentModal() {
 
   const handleManage = () => {
     // You can open a settings panel here
-    alert("Open cookie settings (not implemented)");
+    // alert("Open cookie settings (not implemented)");
+    setShow(false);
   };
 
   const handleClose = () => {
