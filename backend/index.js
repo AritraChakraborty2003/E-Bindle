@@ -52,7 +52,7 @@ app.use("/api/v1/", generalRouter);
 app.use("/api/v1/about", AboutRouter);
 app.use("/api/v1/services", ServicesRouter);
 app.use("/api/v1/projects", ProjectRouter);
-app.use("/api/v1/contact", ContactRouter);
+app.use("/api/v1/contacts", ContactRouter);
 app.use("/api/v1/admin", AdminRouter);
 app.use("/api/v1/intouch", InTouchRouter);
 app.use("/api/v1/message", MessageRouter);

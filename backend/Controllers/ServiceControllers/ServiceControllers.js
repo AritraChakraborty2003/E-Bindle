@@ -3,8 +3,8 @@ import Service from "../../Models/services.js";
 // Get all services
 export const getAllServices = async (req, res) => {
   try {
-    const services = await Service.find();
-    res.json(services);
+    const services = await Service.find().sort({ createdAt: -1 });
+    res.json({ data: services });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -14,31 +14,69 @@ export const getAllServices = async (req, res) => {
 export const getServiceByTitle = async (req, res) => {
   try {
     const service = await Service.findOne({ title: req.params.title });
-    if (!service) return res.status(404).json({ error: "Service not found" });
-    res.json(service);
+    service
+      ? res.json({ data: service })
+      : res.status(404).json({ error: "Service not found" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-// Create a new service
+// Create a new service (handles multiple subimages)
 export const createService = async (req, res) => {
   try {
-    const newService = await Service.create(req.body);
+    const { title, description, subservice } = req.body;
+    if (!title) return res.status(400).json({ error: "Title is required" });
+
+    // Handle multiple subimages upload
+    const subimages = req.files?.map((file) => file.filename) || [];
+    // subservice can be a JSON string or array
+    const subserviceArr =
+      typeof subservice === "string" ? JSON.parse(subservice) : subservice;
+
+    const newService = await Service.create({
+      title,
+      description,
+      subimages,
+      subservice: subserviceArr || [],
+    });
+
     res.status(201).json({ data: newService });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 };
 
-// Update service by title
+// Update service by title (can add more subimages)
 export const updateServiceByTitle = async (req, res) => {
   try {
+    const { title: newTitle, ...updateData } = req.body;
+    const filter = { title: req.params.title };
+
+    // Handle new subimages
+    if (req.files?.length) {
+      const existing = await Service.findOne(filter);
+      const newSubimages = req.files.map((file) => file.filename);
+      updateData.subimages = [...(existing?.subimages || []), ...newSubimages];
+    }
+
+    // Handle subservice updates
+    if (updateData.subservice) {
+      updateData.subservice =
+        typeof updateData.subservice === "string"
+          ? JSON.parse(updateData.subservice)
+          : updateData.subservice;
+    }
+
+    // Allow title change
+    if (newTitle) updateData.title = newTitle;
+
     const updated = await Service.findOneAndUpdate(
-      { title: req.params.title },
-      req.body,
+      filter,
+      { $set: updateData },
       { new: true, runValidators: true }
     );
+
     updated
       ? res.json({ data: updated })
       : res.status(404).json({ error: "Service not found" });
@@ -56,50 +94,5 @@ export const deleteServiceByTitle = async (req, res) => {
       : res.status(404).json({ error: "Service not found" });
   } catch (err) {
     res.status(500).json({ error: err.message });
-  }
-};
-
-// Update a subservice by its title
-export const updateSubserviceByTitle = async (req, res) => {
-  try {
-    const { serviceTitle, subserviceTitle } = req.params;
-    const service = await Service.findOne({ title: serviceTitle });
-    if (!service) return res.status(404).json({ error: "Service not found" });
-
-    const idx = service.subservice.findIndex(
-      (s) => s.title === subserviceTitle
-    );
-    if (idx === -1)
-      return res.status(404).json({ error: "Subservice not found" });
-
-    // Only update provided fields
-    service.subservice[idx] = { ...service.subservice[idx]._doc, ...req.body };
-    await service.save();
-
-    res.json({ data: service.subservice[idx] });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
-
-// Delete a subservice by its title
-export const deleteSubserviceByTitle = async (req, res) => {
-  try {
-    const { serviceTitle, subserviceTitle } = req.params;
-    const service = await Service.findOne({ title: serviceTitle });
-    if (!service) return res.status(404).json({ error: "Service not found" });
-
-    const idx = service.subservice.findIndex(
-      (s) => s.title === subserviceTitle
-    );
-    if (idx === -1)
-      return res.status(404).json({ error: "Subservice not found" });
-
-    service.subservice.splice(idx, 1);
-    await service.save();
-
-    res.json({ data: "Subservice deleted" });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
   }
 };

@@ -35,11 +35,24 @@ export const createContact = async (req, res) => {
 // Update a contact by level
 export const updateContactByLevel = async (req, res) => {
   try {
+    // 1. Remove level from body to prevent accidental changes
+    const { level, ...rest } = req.body;
+
+    // 2. Filter out empty strings and undefined values
+    const updateData = Object.entries(rest).reduce((acc, [key, value]) => {
+      if (value !== undefined && value !== "") {
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+
+    // 3. Update only specified fields using $set
     const contact = await Contact.findOneAndUpdate(
       { level: req.params.level },
-      req.body,
+      { $set: updateData },
       { new: true, runValidators: true }
     );
+
     contact
       ? res.json({ data: contact })
       : res.status(404).json({ error: "Contact not found" });
@@ -57,27 +70,5 @@ export const deleteContactByLevel = async (req, res) => {
       : res.status(404).json({ error: "Contact not found" });
   } catch (err) {
     res.status(500).json({ error: err.message });
-  }
-};
-
-// Update a specific social entry by its text
-export const updateSocialByText = async (req, res) => {
-  try {
-    const { level, socialText } = req.params;
-    const contact = await Contact.findOne({ level });
-    if (!contact) {
-      return res.status(404).json({ error: "Contact not found" });
-    }
-    const idx = contact.socials.findIndex(
-      (social) => social.text === socialText
-    );
-    if (idx === -1) {
-      return res.status(404).json({ error: "Social entry not found" });
-    }
-    contact.socials[idx] = { ...contact.socials[idx]._doc, ...req.body };
-    await contact.save();
-    res.json({ data: contact.socials[idx] });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
   }
 };

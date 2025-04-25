@@ -34,7 +34,25 @@ const CmsDashboard = () => {
       id: 2,
       image: "/images/admin.png",
       title: "Add Admin",
-      link: "/AdminCMS",
+      link: "/admincms",
+    },
+    {
+      id: 3,
+      image: "/images/messageicon.webp",
+      title: "message CMS",
+      link: "/messagecms",
+    },
+    {
+      id: 4,
+      image: "/images/qoutes.webp",
+      title: "Qoute CMS",
+      link: "/qoutecms",
+    },
+    {
+      id: 5,
+      image: "/images/intouch.png",
+      title: "In Touch CMS",
+      link: "/intouchcms",
     },
     {
       id: 3,
@@ -46,13 +64,13 @@ const CmsDashboard = () => {
       id: 4,
       image: "/images/service.png",
       title: "Add Services",
-      link: "/ServicesCMS",
+      link: "/servicecms",
     },
     {
       id: 5,
       image: "/images/phone.png",
       title: "Add Contact",
-      link: "/ContactCMS",
+      link: "/contactcms",
     },
   ];
   return (

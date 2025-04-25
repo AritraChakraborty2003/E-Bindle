@@ -1,16 +1,14 @@
 import Project from "../../Models/projects.js";
-
-// Get all projects
+// Controllers
 export const getAllProjects = async (req, res) => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find().sort({ createdAt: -1 });
     res.json({ data: projects });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-// Get a project by title
 export const getProjectByTitle = async (req, res) => {
   try {
     const project = await Project.findOne({ title: req.params.title });
@@ -22,24 +20,52 @@ export const getProjectByTitle = async (req, res) => {
   }
 };
 
-// Create a new project
 export const createProject = async (req, res) => {
   try {
-    const project = await Project.create(req.body);
+    const { pname, title, descr, techstack, category, time, link } = req.body;
+    // Just use file.filename
+    const images = req.files?.map((file) => file.filename) || [];
+
+    const project = await Project.create({
+      pname,
+      title,
+      descr,
+      techstack: JSON.parse(techstack),
+      category,
+      time,
+      images,
+      link,
+    });
+
     res.status(201).json({ data: project });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 };
 
-// Update a project by title
 export const updateProjectByTitle = async (req, res) => {
   try {
+    const { title: newTitle, ...updateData } = req.body;
+    const filter = { title: req.params.title };
+
+    // Handle image updates
+    if (req.files?.length) {
+      const newImages = req.files.map((file) => file.filename);
+      const existing = await Project.findOne(filter);
+      updateData.images = [...existing.images, ...newImages];
+    }
+
+    // Handle techstack updates
+    if (updateData.techstack) {
+      updateData.techstack = JSON.parse(updateData.techstack);
+    }
+
     const project = await Project.findOneAndUpdate(
-      { title: req.params.title },
-      req.body,
+      filter,
+      { $set: newTitle ? { ...updateData, title: newTitle } : updateData },
       { new: true, runValidators: true }
     );
+
     project
       ? res.json({ data: project })
       : res.status(404).json({ error: "Project not found" });
@@ -48,7 +74,6 @@ export const updateProjectByTitle = async (req, res) => {
   }
 };
 
-// Delete a project by title
 export const deleteProjectByTitle = async (req, res) => {
   try {
     const project = await Project.findOneAndDelete({ title: req.params.title });
