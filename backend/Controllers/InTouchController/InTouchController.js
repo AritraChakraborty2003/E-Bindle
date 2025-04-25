@@ -1,4 +1,4 @@
-import InTouch from "../../models/InTouch.js";
+const InTouch = [{}];
 
 // Get all InTouch entries
 export const getAllInTouch = async (req, res) => {
