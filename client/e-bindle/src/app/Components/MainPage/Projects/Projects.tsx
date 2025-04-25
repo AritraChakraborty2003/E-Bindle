@@ -23,29 +23,29 @@ const Projects: React.FC<ProjectProps> = (props) => {
       });
   }, []);
   const { title } = props;
-  const projects = [
-    {
-      image: "/images/bw-image.png",
-      title: "Branding Wokz",
-      description: "The Branding Workz website",
-      link: "/",
-      delay: 0.6,
-    },
-    {
-      image: "/images/bw-image.png",
-      title: "Branding Wokz",
-      description: "The Branding Workz website",
-      link: "/",
-      delay: 0.4,
-    },
-    {
-      image: "/images/bw-image.png",
-      title: "Branding Wokz",
-      description: "The Branding Workz website",
-      link: "/",
-      delay: 0.3,
-    },
-  ];
+  // const projects = [
+  //   {
+  //     image: "/images/bw-image.png",
+  //     title: "Branding Wokz",
+  //     description: "The Branding Workz website",
+  //     link: "/",
+  //     delay: 0.6,
+  //   },
+  //   {
+  //     image: "/images/bw-image.png",
+  //     title: "Branding Wokz",
+  //     description: "The Branding Workz website",
+  //     link: "/",
+  //     delay: 0.4,
+  //   },
+  //   {
+  //     image: "/images/bw-image.png",
+  //     title: "Branding Wokz",
+  //     description: "The Branding Workz website",
+  //     link: "/",
+  //     delay: 0.3,
+  //   },
+  // ];
   return (
     <>
       {console.log("data:", data)}
@@ -62,9 +62,10 @@ const Projects: React.FC<ProjectProps> = (props) => {
         </p>
 
         <div className="mt-8 flex  flex-wrap justify-evenly items-center gap-x-3  gap-y-6">
-          {projects.map((item, index) => (
-            <ProjectCard key={index} project={item} />
-          ))}
+          {(data.length > 0 &&
+            data.map((item, index) => (
+              <ProjectCard key={index} project={item} />
+            ))) || <p>Loading...</p>}
         </div>
       </div>
     </>
