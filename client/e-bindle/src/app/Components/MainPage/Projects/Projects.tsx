@@ -13,7 +13,7 @@ const Projects: React.FC<ProjectProps> = (props) => {
 
   useEffect(() => {
     axios
-      .get("https://api.e-bindle.in/api/v1/projects", { withCredentials: true })
+      .get("https://api.codemap.online/", { withCredentials: true })
       .then((response) => {
         console.log("Response:", response);
         setData(response.data);
