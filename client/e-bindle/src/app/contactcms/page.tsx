@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Footer from "../Components/MainPage/Footer";
-import CMSHeader from "../CMS/cmsComponent/CMSHeader";
+import CMSHeader from "../cms/cmsComponent/CMSHeader";
 
 const ContactCMS = () => {
   const [activeTab, setActiveTab] = useState<"add" | "update" | "delete">(
