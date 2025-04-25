@@ -13,7 +13,7 @@ const Projects: React.FC<ProjectProps> = (props) => {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos/3")
+      .get("https://api.e-bindle.in/api/v1/projects")
       .then((response) => {
         console.log("Response:", response);
         setData(response.data);
