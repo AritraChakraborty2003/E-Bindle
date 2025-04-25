@@ -9,7 +9,7 @@ export default function CookieConsentModal() {
   useEffect(() => {
     // Show after 2 seconds if not already dismissed this session
     if (!sessionStorage.getItem("cookie-consent")) {
-      const timer = setTimeout(() => setShow(true), 2000);
+      const timer = setTimeout(() => setShow(true), 5000);
       return () => clearTimeout(timer);
     }
   }, []);
