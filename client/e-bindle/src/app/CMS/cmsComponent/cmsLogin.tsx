@@ -23,7 +23,7 @@ const CmsLogin = () => {
     );
 
     if (res.status === 200) {
-      router.push("/cmsdashboard");
+      router.push("/cmsDashboard");
     } else {
       alert("Not Logged In");
     }
