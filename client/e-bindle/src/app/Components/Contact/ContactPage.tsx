@@ -75,11 +75,11 @@ export default function ContactPage() {
           animate={inView ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="min-h-screen  p-4 flex items-center justify-center mt-[-8vmin] lg:mt-0 lg:pt-8 lg:pb-8">
+          <div className="min-h-screen border-gray-800 p-4 flex items-center justify-center mt-[-8vmin] lg:mt-0 lg:pt-8 lg:pb-8">
             <div className="container mx-auto max-w-6xl bg-white rounded-lg shadow-md flex flex-col md:flex-row overflow-hidden">
               {/* Sidebar - Hidden on mobile */}
 
-              <div className="hidden md:block md:w-1/2 p-10">
+              <div className="hidden md:block md:w-1/2 p-10 border-gray-100 border-1 bg-blue-100">
                 <p className="text-blue-500 mb-2 font-semibold">Contact Us</p>
                 <h1 className="text-5xl font-bold mb-6 text-black">
                   Get In Touch
@@ -125,7 +125,7 @@ export default function ContactPage() {
               </div>
 
               {/* Form - Always visible */}
-              <div className="w-full md:w-1/2 bg-blue-400/40 p-2 pt-10 pb-10 lg:p-10 mt-1 lg:mt-0">
+              <div className="w-full md:w-1/2 border-gray-100 border-1 p-2 pt-10 pb-10 lg:p-10 mt-1 lg:mt-0">
                 <div className="mb-2 lg:mb-6">
                   <h2 className="text-xl font-semibold text-blue-700 ml-2 lg:mt-5">
                     Please Fill the details...
