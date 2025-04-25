@@ -10,11 +10,10 @@ interface ProjectProps {
     title: string;
     descr: string;
     link: string;
-    delay: number;
   };
 }
 const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
-  const { images, title, descr, link, delay } = project;
+  const { images, title, descr, link } = project;
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -26,7 +25,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={inView ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: delay }}
+        transition={{ duration: 0.6, delay: 0.4 }}
       >
         <div className="card w-[80vw] lg:w-[25vw]  flex justify-center items-center pb-6 border-gray-300 border-1 ">
           <div className="flex flex-col w-full h-full">
