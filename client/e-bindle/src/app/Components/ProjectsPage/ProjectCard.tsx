@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project }) => {
                 {title}
               </p>
 
-              <p className="ml-3 text-gray-500 mt-1 text-md pb-2 leading-[4vmin] pl-1">
+              <p className="ml-3 text-gray-500 mt-1 text-md pb-2 leading-[6.5vmin] lg:leading-[5.75vmin] pl-1">
                 {descr}
               </p>
             </div>
