@@ -49,7 +49,7 @@ const testimonials: TestimonialData[] = [
 ];
 
 const Testimonials = () => (
-  <section className="bg-gray-50 py-16">
+  <section className="bg-gray-50 py-16 pb-20">
     <div className="max-w-5xl mx-auto text-center mb-10">
       <h4 className="text-blue-600 font-bold mb-2">OUR TESTIMONIAL</h4>
       <h2 className="text-3xl font-bold mb-6">What They Say About Us.</h2>

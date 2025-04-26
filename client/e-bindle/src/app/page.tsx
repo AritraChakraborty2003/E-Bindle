@@ -10,6 +10,7 @@ import Faq from "./Components/MainPage/FAQ/Faq";
 import GetQoute from "./Components/MainPage/GetQoute";
 import Contact from "./Components/Contact/ContactPage";
 import Loader from "./Components/MainPage/Loader";
+import Blogs from "./Components/MainPage/Blogs";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects title="Our Projects" />
         <GetQoute />
         <Testimonials />
+        <Blogs />
         <Faq />
         <Contact />
         <Footer />
