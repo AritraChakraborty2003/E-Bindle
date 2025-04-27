@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
+import { DataProvider } from "@/context/DataContext";
 import "./globals.css";
 import CookieConsent from "./Components/General/CookieConsent";
+// import FloatingChatbot from "./Components/General/FloatingWidget";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -26,8 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <DataProvider>
         {children}
+        </DataProvider>
+     
         <CookieConsent />
+
       </body>
     </html>
   );

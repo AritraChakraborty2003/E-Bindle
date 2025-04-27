@@ -13,7 +13,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   testimonial,
   variant = "card",
 }) => {
-  const { name, role, avatar, quote, rating = 0 } = testimonial;
+  const { name, role, qoute, rating = 0 } = testimonial;
 
   if (variant === "quote") {
     return (
@@ -23,16 +23,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
         <div className="mb-6">
           <Image
-            src={avatar}
-            alt={`${name}'s avatar`}
-            width={120}
-            height={120}
-            className="rounded-full border-4 border-white shadow-md"
+            src="/images/avatar.png"
+            alt="image"
+            width={60}
+            height={60}
+            className="rounded-full"
           />
         </div>
 
         <div className="text-center max-w-md">
-          <p className="italic text-gray-200 mb-6">{quote}</p>
+          <p className="italic text-gray-200 mb-6">{qoute}</p>
 
           <h3 className="font-bold text-lg">"{name}"</h3>
           <p className="text-gray-300">{role}</p>
@@ -47,8 +47,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <div className="flex items-start mb-4">
         <div className="mr-4">
           <Image
-            src={avatar}
-            alt={`${name}'s avatar`}
+            src="/images/avatar.png"
+            alt="image"
             width={60}
             height={60}
             className="rounded-full"
@@ -75,7 +75,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         ))}
       </div>
 
-      <p className="italic text-gray-700 flex-grow">"{quote}"</p>
+      <p className="italic text-gray-700 flex-grow">"{qoute}"</p>
     </div>
   );
 };

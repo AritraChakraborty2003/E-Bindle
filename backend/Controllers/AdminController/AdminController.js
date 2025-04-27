@@ -7,6 +7,7 @@ const getCookieOptions = () => ({
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
   sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+  sameSite: "Lax",
   maxAge: 3600000, // 1 hour
 });
 
@@ -46,13 +47,14 @@ export const loginAdmin = async (req, res) => {
     const { email, password } = req.body;
 
     const admin = await Admin.findOne({ email }).select("+password");
+
     if (!admin || !(await bcrypt.compare(password, admin.password))) {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
     const token = jwt.sign(
       { id: admin._id, email: admin.email, role: admin.role },
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET_KEY,
       { expiresIn: "1h" }
     );
 
@@ -66,7 +68,6 @@ export const loginAdmin = async (req, res) => {
 
 // Admin logout
 export const logoutAdmin = (req, res) => {
-  console.log("HIt");
   res
     .clearCookie("adminToken", getCookieOptions())
     .json({ data: "Logged out successfully" });
@@ -74,7 +75,7 @@ export const logoutAdmin = (req, res) => {
 // Protected middleware
 export const protect = async (req, res, next) => {
   const token = req.cookies?.adminToken;
-  console.log(req.cookies);
+
   if (!token) return res.status(401).json({ error: "Not authenticated" });
 
   try {

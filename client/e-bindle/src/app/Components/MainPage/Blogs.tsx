@@ -16,9 +16,9 @@ const Blogs = () => {
               </p>
             </LeftAnimation>
           </div>
-          <div className="ml-[15vmin] lg:w-[60vw] mt-7 flex justify-end">
+          <div className="ml-[19vmin] lg:w-[60vw] mt-7 flex justify-end">
             <RightAnimation>
-              <button className="bg-blue-500 text-white  h-10 w-30">
+              <button className="bg-blue-500 text-white text-xs lg:text-md  h-10 w-24">
                 View More
               </button>
             </RightAnimation>

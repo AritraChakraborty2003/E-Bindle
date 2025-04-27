@@ -3,7 +3,7 @@ import React from "react";
 
 const BlogCard = () => {
   return (
-    <div className=" pb-5 pt-10 w-[90vw] lg:w-[27vw] border-gray-300 border-[1px] flex flex-col justify-center items-center">
+    <div className="pt-5 pb-5 lg:pb-5 lg:pt-10 w-[89vw] lg:w-[27vw] border-gray-300 border-[1px] flex flex-col justify-center items-center">
       <div className="imageArea w-full h-[60%] flex justify-center items-center">
         <Image src="/images/JWT.jpeg" alt="JWT icon" height={330} width={330} />
       </div>
@@ -21,7 +21,9 @@ const BlogCard = () => {
           JWT tokens provide a secured authentication layer for login snd signup
           system ...
         </div>
-        <p className="mt-3 text-gray-500  pl-2">read more...</p>
+        <p className="mt-3 text-gray-500  pl-2">
+          <a href="/blogsarea/JWT">read more...</a>
+        </p>
       </div>
     </div>
   );

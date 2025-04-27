@@ -65,8 +65,10 @@ const ProjectCMS = () => {
           });
 
           alert(option === "add" ? "Project Added" : "Project Updated");
-        } catch (err: any) {
-          alert(err.response?.data?.error || "Something went wrong");
+        } catch (err) {
+          const errorMessage =
+            (err as any)?.response?.data?.error || "Something went wrong";
+          alert(errorMessage);
         }
       }
       submitData();
@@ -79,7 +81,7 @@ const ProjectCMS = () => {
           } else {
             alert("Something went wrong");
           }
-        } catch (err: any) {
+        } catch (err) {
           alert(err.response?.data?.error || "Something went wrong");
         }
       }
@@ -150,8 +152,6 @@ const ProjectCMS = () => {
                 }))
               }
               className="w-full p-3 border rounded-lg"
-              required
-              disabled={activeTab === "update" || activeTab === "delete"}
             />
             {activeTab !== "delete" && (
               <>

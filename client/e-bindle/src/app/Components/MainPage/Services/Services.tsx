@@ -6,13 +6,13 @@ import { ServiceData } from "./ServiceData";
 import ServiceCard from "./ServiceCard";
 
 const Services: React.FC = () => {
-  // Mock service data directly in the component
+  // Updated service data with equal-length descriptions
   const services: ServiceData[] = [
     {
       id: 1,
       title: "Custom SaaS",
       description:
-        "Dramatical restore business leadr design Nastional productivate bricks too landing process improvents.",
+        "We specialize in developing custom Software as a Service (SaaS) solutions that are secure, scalable, and tailored to your business's unique needs, enabling growth and efficiency.",
       icon: "SaaS.png",
       bgColor: "#b3e3c2", // Green
       delay: 0.3,
@@ -21,16 +21,16 @@ const Services: React.FC = () => {
       id: 2,
       title: "Web Development",
       description:
-        "Dramatical restore business leadr design Nastional productivate bricks too landing process improvents.",
+        "Our expert web development team builds responsive, high-performance websites designed to enhance user experience and maximize conversions, driving success for your business.",
       icon: "web-dev.png",
       bgColor: "#b8f5ff", // Light pink/white
       delay: 0.4,
     },
     {
       id: 3,
-      title: "IOT Solutions",
+      title: "IoT Solutions",
       description:
-        "Dramatical restore business leadr design Nastional productivate bricks too landing process improvents.",
+        "We provide innovative Internet of Things (IoT) solutions that connect your devices, automate processes, and enable real-time data collection, helping you make smarter decisions.",
       icon: "IOT.png",
       bgColor: "#fff5ef", // Light orange
       delay: 0.5,
@@ -39,7 +39,7 @@ const Services: React.FC = () => {
       id: 4,
       title: "AI/ML & Analytics",
       description:
-        "Dramatical restore business leadr design Nastional productivate bricks too landing process improvents.",
+        "Our AI and Machine Learning services leverage advanced models and analytics to transform your business data into actionable insights, improving decision-making and operational efficiency.",
       icon: "AI_ML.png",
       bgColor: "#0950d5", // Blue
       delay: 0.4,
@@ -48,7 +48,7 @@ const Services: React.FC = () => {
       id: 5,
       title: "App Development",
       description:
-        "Dramatical restore business leadr design Nastional productivate bricks too landing process improvents.",
+        "We design and develop mobile applications that provide seamless user experiences across iOS and Android platforms, helping your business engage and retain customers effectively.",
       icon: "app-dev.png",
       bgColor: "#f8f0ff", // Light purple
       delay: 0.3,

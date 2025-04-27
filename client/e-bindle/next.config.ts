@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
         hostname: "api.e-bindle.in",
         pathname: "**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8000",
+        pathname: "/**",
+      },
     ],
   },
 };

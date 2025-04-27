@@ -125,7 +125,7 @@ export default function ContactPage() {
               </div>
 
               {/* Form - Always visible */}
-              <div className="w-full md:w-1/2 border-gray-100 border-1 p-2 pt-10 pb-10 lg:p-10 mt-1 lg:mt-0">
+              <div className="bg-blue-200 lg:bg-white  w-full md:w-1/2 border-gray-100 border-1 p-2 pt-10 pb-10 lg:p-10 mt-1 lg:mt-0">
                 <div className="mb-2 lg:mb-6">
                   <h2 className="text-xl font-semibold text-blue-700 ml-2 lg:mt-5">
                     Please Fill the details...

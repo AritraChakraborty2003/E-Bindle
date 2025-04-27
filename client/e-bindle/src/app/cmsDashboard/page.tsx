@@ -2,27 +2,27 @@
 import React from "react";
 import Footer from "../Components/MainPage/Footer";
 import DashboardCard from "../CMS/cmsComponent/DashboardCard";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { checkIsLoggedIn } from "../CMS/cmsComponent/utils/checkIsLoggedIn";
+// import { useEffect, useState } from "react";
+// import { useRouter } from "next/navigation";
+// import { checkIsLoggedIn } from "../CMS/cmsComponent/utils/checkIsLoggedIn";
 import CMSHeader from "../CMS/cmsComponent/CMSHeader";
 
 const CmsDashboard = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const router = useRouter();
-  useEffect(() => {
-    async function checkAuth() {
-      const loggedIn = await checkIsLoggedIn();
-      setIsLoggedIn(loggedIn);
-      if (!loggedIn) {
-        router.replace("/CMS");
-      }
-    }
-    checkAuth();
-  }, [router]);
+  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   async function checkAuth() {
+  //     const loggedIn = await checkIsLoggedIn();
+  //     setIsLoggedIn(loggedIn);
+  //     if (!loggedIn) {
+  //       router.replace("/CMS");
+  //     }
+  //   }
+  //   checkAuth();
+  // }, [router]);
 
-  if (isLoggedIn === null) return <div>Loading...</div>;
-  if (!isLoggedIn) return null;
+  // if (isLoggedIn === null) return <div>Loading...</div>;
+  // if (!isLoggedIn) return null;
   const data = [
     {
       id: 1,
@@ -77,6 +77,12 @@ const CmsDashboard = () => {
       image: "/images/phone.png",
       title: "Add Contact",
       link: "/contactcms",
+    },
+    {
+      id: 6,
+      image: "/images/blogs.png",
+      title: "Add Blogs",
+      link: "/blogscms",
     },
   ];
   return (

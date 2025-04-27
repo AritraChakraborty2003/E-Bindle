@@ -1,61 +1,72 @@
 "use client"; // components/testimonials/Testimonials.tsx
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import TestimonialSlider from "./TestimonialSlider";
-import { TestimonialData } from "./TestinmomialsDataInterface";
 
-const testimonials: TestimonialData[] = [
-  {
-    id: 1,
-    name: "Al-Aamin",
-    role: "Project Manager",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=1",
-    quote: "Lorem totam rem aperi eaque ipsa business quea ab illo in...",
-  },
-  {
-    id: 2,
-    name: "Anil Lama",
-    role: "Project Manager",
-    rating: 4,
-    avatar: "https://i.pravatar.cc/100?img=2",
-    quote: "Lorem totam rem aperi eaque ipsa business quea ab illo in...",
-  },
-  {
-    id: 3,
-    name: "Akash",
-    role: "Project Manager",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=3",
-    quote: "Lorem totam rem aperi eaque ipsa business quea ab illo in...",
-  },
-  {
-    id: 4,
-    name: "Aman Pal",
-    role: "Project Manager",
-    rating: 4,
-    avatar: "https://i.pravatar.cc/100?img=4",
-    quote:
-      "Lorem totam rem aperi eaque ipsa business quea ab illo in..Lorem totam rem",
-  },
-  {
-    id: 5,
-    name: "Al-Aamin Hossain",
-    role: "Project Manager",
-    rating: 5,
-    avatar: "https://i.pravatar.cc/100?img=5",
-    quote: "Lorem totam rem aperi eaque ipsa business quea ab illo in...",
-  },
-  // Add more as needed
-];
+// Define TypeScript types for the fetched data
+interface TestimonialData {
+  id: number;
+  name: string;
+  role: string;
+  rating: number;
+  avatar: string;
+  qoute: string;
+}
 
-const Testimonials = () => (
-  <section className="bg-gray-50 py-16 pb-20">
-    <div className="max-w-5xl mx-auto text-center mb-10">
-      <h4 className="text-blue-600 font-bold mb-2">OUR TESTIMONIAL</h4>
-      <h2 className="text-3xl font-bold mb-6">What They Say About Us.</h2>
-    </div>
-    <TestimonialSlider testimonials={testimonials} />
-  </section>
-);
+const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL_TEST;
+
+  useEffect(() => {
+    // Function to fetch testimonials data
+    const fetchTestimonials = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}api/v1/testimonials`);
+        setTestimonials(response.data);
+      } catch (err) {
+        setError("Failed to load testimonials");
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }); // Empty dependency array ensures this runs only once
+
+  if (isLoading) {
+    return (
+      <section className="bg-gray-50 py-16 pb-20">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h4 className="text-blue-600 font-bold mb-2">Loading...</h4>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="bg-gray-50 py-16 pb-20">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h4 className="text-red-600 font-bold mb-2">{error}</h4>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="bg-gray-50 py-16 pb-20">
+      <div className="max-w-5xl mx-auto text-center mb-10">
+        <h4 className="text-blue-600 font-bold mb-2">OUR TESTIMONIAL</h4>
+        <h2 className="text-[7vmin] lg:text-3xl font-bold mb-6">
+          What They Say About Us.
+        </h2>
+      </div>
+      <TestimonialSlider testimonials={testimonials} />
+    </section>
+  );
+};
 
 export default Testimonials;

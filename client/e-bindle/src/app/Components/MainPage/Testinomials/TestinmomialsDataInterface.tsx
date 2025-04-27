@@ -4,6 +4,6 @@ export interface TestimonialData {
   name: string;
   role: string;
   avatar: string;
-  quote: string;
+  qoute: string;
   rating?: number; // Optional rating out of 5
 }

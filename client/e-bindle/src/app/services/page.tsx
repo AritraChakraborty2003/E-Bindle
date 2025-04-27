@@ -6,29 +6,32 @@ import Services from "../Components/MainPage/Services/Services";
 import Testimonials from "../Components/MainPage/Testinomials/Testimonials";
 import GetQoute from "../Components/MainPage/GetQoute";
 import ContactPage from "../Components/Contact/ContactPage";
+import Loader from "../Components/MainPage/Loader";
 
 const page = () => {
   return (
     <>
-      <Header />
-      <main>
-        <div className="content">
-          <HeroGeneral
-            Title="Our Services"
-            slogan="Home / Services"
-            image="/images/bg-service.jpg"
-          />
-        </div>
+      <Loader>
+        <Header />
+        <main>
+          <div className="content">
+            <HeroGeneral
+              Title="Our Services"
+              slogan="Home / Services"
+              image="/images/bg-service.jpg"
+            />
+          </div>
 
-        <Services />
+          <Services />
 
-        <GetQoute />
+          <GetQoute />
 
-        <Testimonials />
+          <Testimonials />
 
-        <ContactPage />
-      </main>
-      <Footer />
+          <ContactPage />
+        </main>
+        <Footer />
+      </Loader>
     </>
   );
 };
