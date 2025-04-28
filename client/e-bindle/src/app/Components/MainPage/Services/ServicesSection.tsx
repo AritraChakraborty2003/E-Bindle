@@ -22,14 +22,14 @@ const ServiceSection = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="w-full md:w-1/2 flex justify-center"
       >
-        <div className="relative w-[540px] h-[380px] min-w-[300px] flex items-center justify-center">
+        <div className="relative w-[600px] h-[380px] min-w-[300px] flex items-center justify-center ">
           {/* Main Large Ellipse */}
-          <div className="absolute left-5 lg:left-0 top-0 overflow-hidden h-[320px] w-[340px] lg:h-[320px] lg:w-[420px]">
+          <div className="lg:ml-10 absolute lg:left-0 top-0 overflow-hidden h-[320px] w-[340px] lg:h-[380px] lg:w-[500px]">
             <Image
-              src="/images/a.png" // Replace with your image
+              src="/images/webd.jpeg" // Replace with your image
               alt="Business Team"
-              width={560}
-              height={560}
+              width={760}
+              height={760}
               style={{
                 width: "100%",
                 height: "100%",
@@ -37,8 +37,16 @@ const ServiceSection = () => {
                 objectPosition: "center",
               }}
             />
-          </div>
 
+            {/* Black Tint Overlay */}
+
+            <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+            <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-6 z-10">
+              <h2 className="text-white text-2xl font-bold mb-0 drop-shadow-lg">
+                Let&lsquo;s Work Together
+              </h2>
+            </div>
+          </div>
           {/* Smaller Ellipse (Bottom Right) */}
 
           {/* Overlay Card */}
@@ -46,7 +54,7 @@ const ServiceSection = () => {
       </motion.div>
 
       {/* Text & Button Container */}
-      <div className="w-full md:w-1/2 flex flex-col mt-8  gap-y-1 md:mt-0 ">
+      <div className="w-full md:w-1/2 flex flex-col mt-[-4vmin] lg:mt-8  gap-y-1 md:mt-0 ">
         <motion.div
           initial={{ x: 1000, opacity: 0 }}
           animate={inView ? { x: 0, opacity: 1 } : {}}
@@ -54,7 +62,7 @@ const ServiceSection = () => {
           className="flex flex-col mb-8"
         >
           <div className="w-[100%] lg:w-[95%] p-1 pl-3 lg:p-2 mt-0 lg:mt-3">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-blue-500 ml-2">
+            <h2 className="text-xl lg:text-2xl font-bold mb-4 text-blue-500 ml-2">
               - Web Development
             </h2>
             <p className="leading-[9vmin] lg:leading-[5.6vmin] w-[98%] font-sans p-2 text-md ">

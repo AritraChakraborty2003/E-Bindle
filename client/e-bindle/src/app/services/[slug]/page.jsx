@@ -17,6 +17,7 @@ export default async function Page({ params }) {
         slogan={`Home /${text}`}
         image="/images/projects-bg-1.jpg"
       />
+      x
       <main>
         <ServiceSection text={text} />
 
