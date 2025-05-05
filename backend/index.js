@@ -36,7 +36,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? "https://e-bindle.in" // e.g., "https://yourdomain.com"
+        ? "https://e-bindle.com" // e.g., "https://yourdomain.com"
         : "http://localhost:3000",
 
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
