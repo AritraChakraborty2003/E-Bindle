@@ -7,7 +7,6 @@ const getCookieOptions = () => ({
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
   sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-  sameSite: "Lax",
   maxAge: 3600000, // 1 hour
 });
 
