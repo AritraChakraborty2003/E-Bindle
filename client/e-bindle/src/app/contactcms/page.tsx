@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -10,6 +9,7 @@ const ContactCMS = () => {
   const [activeTab, setActiveTab] = useState<"add" | "update" | "delete">(
     "add"
   );
+
   const [formData, setFormData] = useState({
     level: "",
     email: "",
@@ -25,6 +25,7 @@ const ContactCMS = () => {
 
   const handleClick = (option: string, data: typeof formData) => {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/contacts";
+
     if (option === "add") {
       async function addContact() {
         try {
@@ -79,7 +80,11 @@ const ContactCMS = () => {
             alert("Something went wrong");
           }
         } catch (err) {
-          alert(err.response?.data?.error || "Something went wrong");
+          if (axios.isAxiosError(err) && err.response) {
+            alert(err.response.data?.error || "Something went wrong");
+          } else {
+            alert("Something went wrong");
+          }
         }
       }
       deleteContact();
@@ -120,7 +125,6 @@ const ContactCMS = () => {
               handleClick(activeTab, formData);
             }}
           >
-            {/* Level is always required */}
             <input
               type="text"
               placeholder="Level (unique key, e.g. 'primary')"
@@ -130,10 +134,8 @@ const ContactCMS = () => {
               }
               className="w-full p-3 border rounded-lg"
               required
-              //   disabled={activeTab === "update" || activeTab === "delete"}
             />
 
-            {/* Only show other fields for add/update */}
             {activeTab !== "delete" && (
               <>
                 <input
