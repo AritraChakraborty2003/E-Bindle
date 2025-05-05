@@ -23,6 +23,8 @@ const Projects: React.FC<ProjectProps> = ({ title }) => {
   );
   const delay = [0.6, 0.4, 0.2];
 
+  console.log(data);
+
   return (
     <div className="relative overflow-hidden w-full h-full py-20 pb-20 mt-[-10.75vmin] lg:mt-[-2vmin]">
       <p className="ml-3 text-[7vmin] font-extrabold font-Poppins">
