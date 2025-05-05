@@ -15,7 +15,7 @@ const CmsDashboard = () => {
       const loggedIn = await checkIsLoggedIn();
       setIsLoggedIn(loggedIn);
       if (!loggedIn) {
-        router.replace("/CMS");
+        router.replace("/cms");
       }
     }
     checkAuth();
