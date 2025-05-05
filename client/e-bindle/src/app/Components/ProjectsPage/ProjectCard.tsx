@@ -23,6 +23,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ project, delay }) => {
 
   // console.log("https://api.e-bindle.in/" + images[0]);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL_TEST;
+  console.log(API_BASE_URL + images[0]);
   return (
     <div ref={ref}>
       <motion.div
