@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
-import CMSHeader from "../CMS/cmsComponent/CMSHeader";
+import CMSHeader from "../cms/cmsComponent/CMSHeader";
 
 const BlogCMS = () => {
   const [activeTab, setActiveTab] = useState("add");

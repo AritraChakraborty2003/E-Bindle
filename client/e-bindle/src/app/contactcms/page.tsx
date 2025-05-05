@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Footer from "../Components/MainPage/Footer";
-import CMSHeader from "../CMS/cmsComponent/CMSHeader";
+import CMSHeader from "../cms/cmsComponent/CMSHeader";
 
 const ContactCMS = () => {
   const [activeTab, setActiveTab] = useState<"add" | "update" | "delete">(
@@ -36,7 +36,7 @@ const ContactCMS = () => {
           } else {
             alert("Something went wrong");
           }
-        } catch (err: unknown) {
+        } catch (err) {
           if (axios.isAxiosError(err) && err.response) {
             alert(err.response.data?.error || "Something went wrong");
           } else {
@@ -60,7 +60,7 @@ const ContactCMS = () => {
           } else {
             alert("Something went wrong");
           }
-        } catch (err: unknown) {
+        } catch (err) {
           if (axios.isAxiosError(err) && err.response) {
             alert(err.response.data?.error || "Something went wrong");
           } else {
@@ -78,7 +78,7 @@ const ContactCMS = () => {
           } else {
             alert("Something went wrong");
           }
-        } catch (err: any) {
+        } catch (err) {
           alert(err.response?.data?.error || "Something went wrong");
         }
       }

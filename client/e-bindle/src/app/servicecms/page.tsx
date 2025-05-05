@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
-import CMSHeader from "../CMS/cmsComponent/CMSHeader";
+import CMSHeader from "../cms/cmsComponent/CMSHeader";
 import Footer from "../Components/MainPage/Footer";
 
 const ServiceCMS = () => {
@@ -56,7 +56,7 @@ const ServiceCMS = () => {
           });
 
           alert(option === "add" ? "Service Added" : "Service Updated");
-        } catch (err: unknown) {
+        } catch (err) {
           if (axios.isAxiosError(err) && err.response?.data?.error) {
             alert(err.response.data.error);
           } else {
@@ -74,7 +74,7 @@ const ServiceCMS = () => {
           } else {
             alert("Something went wrong");
           }
-        } catch (err: unknown) {
+        } catch (err) {
           if (axios.isAxiosError(err) && err.response?.data?.error) {
             alert(err.response.data.error);
           } else {

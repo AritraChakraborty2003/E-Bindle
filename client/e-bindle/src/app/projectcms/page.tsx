@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import axios, { AxiosError } from "axios";
 import Footer from "../Components/MainPage/Footer";
-import CMSHeader from "../CMS/cmsComponent/CMSHeader";
+import CMSHeader from "../cms/cmsComponent/CMSHeader";
 
 const ProjectCMS = () => {
   const [activeTab, setActiveTab] = useState("add");
