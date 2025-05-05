@@ -11,6 +11,8 @@ const getCookieOptions = () => ({
   path: "/",
 });
 
+console.log(getCookieOptions());
+
 // Initial admin registration (run once)
 export const registerInitialAdmin = async (req, res) => {
   try {
@@ -79,7 +81,7 @@ export const protect = async (req, res, next) => {
   if (!token) return res.status(401).json({ error: "Not authenticated" });
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.admin = await Admin.findById(decoded.id);
     next();
   } catch (err) {

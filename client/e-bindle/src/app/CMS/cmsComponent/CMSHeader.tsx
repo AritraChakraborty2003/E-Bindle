@@ -28,7 +28,7 @@ const CMSHeader = () => {
       );
 
       setIsLoggedIn(false);
-      router.push("/CMS");
+      router.push("/cms");
     } catch (err) {
       console.log(err);
     }
