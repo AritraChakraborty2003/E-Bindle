@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const CmsLogin = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,7 +18,8 @@ const CmsLogin = () => {
       );
 
       if (res.status === 200) {
-        router.push("/cmsDashboard");
+        alert("sent");
+        // router.push("/cmsDashboard");
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
