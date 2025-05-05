@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Footer from "../Components/MainPage/Footer";
 import CMSHeader from "../CMS/cmsComponent/CMSHeader";
 
@@ -46,12 +46,12 @@ const ProjectCMS = () => {
           newFormData.append("pname", data.pname);
           newFormData.append("title", data.title);
           newFormData.append("descr", data.descr);
-          newFormData.append("techstack", data.techstack); // can be a comma-separated string or JSON.stringify([...])
+          newFormData.append("techstack", data.techstack);
           newFormData.append("category", data.category);
           newFormData.append("time", data.time);
           newFormData.append("link", data.link);
           data.files.forEach((file) => {
-            newFormData.append("files", file); // 👈 Use "files" for multi-image upload
+            newFormData.append("files", file);
           });
 
           const url =
@@ -66,9 +66,9 @@ const ProjectCMS = () => {
 
           alert(option === "add" ? "Project Added" : "Project Updated");
         } catch (err) {
-          const errorMessage =
-            (err as any)?.response?.data?.error || "Something went wrong";
-          alert(errorMessage);
+          const error = err as AxiosError<{ error: string }>;
+          console.error(error);
+          alert(error.response?.data?.error || "Something went wrong");
         }
       }
       submitData();
@@ -82,7 +82,9 @@ const ProjectCMS = () => {
             alert("Something went wrong");
           }
         } catch (err) {
-          alert(err.response?.data?.error || "Something went wrong");
+          const error = err as AxiosError<{ error: string }>;
+          console.error(error);
+          alert(error.response?.data?.error || "Something went wrong");
         }
       }
       deleteData();
@@ -133,10 +135,7 @@ const ProjectCMS = () => {
               placeholder="Project Name"
               value={formData.pname}
               onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  pname: e.target.value,
-                }))
+                setFormData((prev) => ({ ...prev, pname: e.target.value }))
               }
               className="w-full p-3 border rounded-lg"
               required
@@ -146,10 +145,7 @@ const ProjectCMS = () => {
               placeholder="Title (unique)"
               value={formData.title}
               onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  title: e.target.value,
-                }))
+                setFormData((prev) => ({ ...prev, title: e.target.value }))
               }
               className="w-full p-3 border rounded-lg"
             />
@@ -160,16 +156,13 @@ const ProjectCMS = () => {
                   placeholder="Description"
                   value={formData.descr}
                   onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      descr: e.target.value,
-                    }))
+                    setFormData((prev) => ({ ...prev, descr: e.target.value }))
                   }
                   className="w-full p-3 border rounded-lg"
                 />
                 <input
                   type="text"
-                  placeholder="Techstack (comma separated or JSON array)"
+                  placeholder="Techstack"
                   value={formData.techstack}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -196,10 +189,7 @@ const ProjectCMS = () => {
                   placeholder="Time"
                   value={formData.time}
                   onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      time: e.target.value,
-                    }))
+                    setFormData((prev) => ({ ...prev, time: e.target.value }))
                   }
                   className="w-full p-3 border rounded-lg"
                 />
@@ -208,14 +198,10 @@ const ProjectCMS = () => {
                   placeholder="Link"
                   value={formData.link}
                   onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      link: e.target.value,
-                    }))
+                    setFormData((prev) => ({ ...prev, link: e.target.value }))
                   }
                   className="w-full p-3 border rounded-lg"
                 />
-                {/* Multi-image upload */}
                 <div
                   {...getRootProps()}
                   className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
