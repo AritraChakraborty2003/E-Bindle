@@ -6,7 +6,7 @@ import RightAnimation from "@/app/Animations/RightAnimation";
 const Blogs = () => {
   return (
     <>
-      <div className="blogs w-[100vw] pb-5 lg:pb-22 p-3 pt-8">
+      <div className="blogs w-[100vw] pb-16 lg:pb-22 p-3 pt-8">
         <header className="flex w-full">
           <div className="text">
             <LeftAnimation>
