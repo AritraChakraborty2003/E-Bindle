@@ -7,7 +7,8 @@ const getCookieOptions = () => ({
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
   sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-  maxAge: 3600000, // 1 hour
+  maxAge: 3600, // 1 hour
+  path: "/",
 });
 
 // Initial admin registration (run once)
