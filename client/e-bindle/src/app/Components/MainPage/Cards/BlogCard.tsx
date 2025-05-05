@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const BlogCard = () => {
@@ -18,11 +19,13 @@ const BlogCard = () => {
           How JWT Authentication works ?
         </h1>
         <div className="descr pl-2 mt-3">
-          JWT tokens provide a secured authentication layer for login snd signup
+          JWT tokens provide a secured authentication layer for login and signup
           system ...
         </div>
-        <p className="mt-3 text-gray-500  pl-2">
-          <a href="/blogsarea/JWT">read more...</a>
+        <p className="mt-3 text-gray-500 pl-2">
+          <Link href="/blogsarea/JWT" legacyBehavior>
+            <a>read more...</a>
+          </Link>
         </p>
       </div>
     </div>
