@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import { DataProvider } from "@/context/DataContext";
 import "./globals.css";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import CookieConsent from "./Components/General/CookieConsent";
 // import FloatingChatbot from "./Components/General/FloatingWidget";
 
@@ -30,6 +32,16 @@ export default function RootLayout({
       <body>
         <DataProvider>
         {children}
+        <ToastContainer 
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="colored"
+        />
         </DataProvider>
      
         <CookieConsent />

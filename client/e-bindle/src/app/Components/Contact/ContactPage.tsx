@@ -2,6 +2,7 @@
 // app/contact/page.js
 "use client";
 
+import { toast } from "react-toastify";
 import { useState } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -50,9 +51,19 @@ export default function ContactPage() {
   };
 
   async function postMessage() {
+    // try {
+    //   const response = await axios.post(
+    //     process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/intouch",
+    //     formData
+    //   );
+    //   if (response.status === 200 || response.status === 201) alert("done");
+    // } catch (error) {
+    //   console.error(error);
+    // }
+
     try {
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/intouch",
+        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/email",
         formData
       );
       if (response.status === 200 || response.status === 201) alert("done");
@@ -180,6 +191,10 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       onClick={() => {
+                        toast.success("Sent successfully!", {
+                          position: "top-right",
+                          theme: "colored", // ensures green background
+                        });
                         postMessage();
                       }}
                       className="bg-blue-600 text-white py-3 px-12 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"

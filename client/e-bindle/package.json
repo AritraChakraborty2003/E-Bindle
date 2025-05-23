@@ -27,6 +27,7 @@
     "react-modal": "^3.16.3",
     "react-modern-drawer": "^1.4.0",
     "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.5",
     "remixicon": "^4.6.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.4.1",
