@@ -63,7 +63,7 @@ export default function ContactPage() {
 
     try {
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/email",
+        process.env.NEXT_PUBLIC_API_URL_TEST + "api/v1/email/send",
         formData
       );
       if (response.status === 200 || response.status === 201) alert("done");
