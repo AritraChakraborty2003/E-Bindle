@@ -62,4 +62,5 @@ app.use("/api/v1/intouch", InTouchRouter);
 app.use("/api/v1/message", MessageRouter);
 app.use("/api/v1/testimonials", TestimonialRouter);
 app.use("/api/v1/qoute", QouteRouter);
+app.use("/api/v1/email", QouteRouter);
 /*--------------------*/
