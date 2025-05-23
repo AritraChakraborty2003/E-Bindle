@@ -41,7 +41,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     // Handle form submission logic
-    alert("Form submitted successfully!");
+
     setFormData({
       name: "",
       email: "",
