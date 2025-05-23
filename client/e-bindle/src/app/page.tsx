@@ -11,6 +11,8 @@ import GetQoute from "./Components/MainPage/GetQoute";
 import Contact from "./Components/Contact/ContactPage";
 import Loader from "./Components/MainPage/Loader";
 import Blogs from "./Components/MainPage/Blogs";
+import WhyChooseUs from "./Components/MainPage/WhyChooseUs";
+import OurWorkflow from "./Components/MainPage/OurWrokflow";
 
 export default function Home() {
   return (
@@ -20,8 +22,13 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+
+        <WhyChooseUs />
+
         <GetQoute />
         <Projects title="Our Projects" />
+
+        <OurWorkflow />
         <GetQoute />
         <Testimonials />
         <Blogs />

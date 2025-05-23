@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         pathname: "**",
       },
       {
+        protocol: "https",
+        hostname: "source.unsplash.com",
+        pathname: "**",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
         port: "8000",
@@ -27,6 +32,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "api.e-bindle.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
         pathname: "**",
       }
     ],
