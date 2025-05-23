@@ -1,6 +1,6 @@
-"use client"; // components/testimonials/Testimonials.tsx
+"use client";
+
 import { useState, useEffect } from "react";
-import axios from "axios";
 import TestimonialSlider from "./TestimonialSlider";
 
 // Define TypeScript types for the fetched data
@@ -13,28 +13,67 @@ interface TestimonialData {
   qoute: string;
 }
 
+// Mock data to simulate API response
+const mockTestimonials: TestimonialData[] = [
+  {
+    id: 1,
+    name: "Somnath Chakraborty",
+    role: "Full Stack Developer",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+    qoute:
+      "The platform is incredibly smooth and efficient. A perfect blend of modern tech!",
+  },
+  {
+    id: 2,
+    name: "Mamta Singh",
+    role: "Marketing Specialist",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    qoute:
+      "Really impressed with the intuitive UI and the customer support. Highly recommend!",
+  },
+  {
+    id: 3,
+    name: "Suryajeet",
+    role: "Startup Consultant",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/men/23.jpg",
+    qoute:
+      "This solution helped us scale faster with less friction. Amazing experience!",
+  },
+  {
+    id: 4,
+    name: "Sulochana Pandey",
+    role: "UI/UX Designer",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/women/41.jpg",
+    qoute:
+      "Aesthetic, functional, and user-friendly. Loved collaborating with the team.",
+  },
+];
+
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL_TEST;
 
   useEffect(() => {
-    // Function to fetch testimonials data
-    const fetchTestimonials = async () => {
+    // Simulate async fetch with mock data
+    const fetchTestimonials = () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}api/v1/testimonials`);
-        setTestimonials(response.data);
-      } catch (err) {
+        setTimeout(() => {
+          setTestimonials(mockTestimonials);
+          setIsLoading(false);
+        }, 300); // simulate delay
+      } catch {
         setError("Failed to load testimonials");
-        console.error(err);
-      } finally {
         setIsLoading(false);
       }
     };
 
     fetchTestimonials();
-  }); // Empty dependency array ensures this runs only once
+  }, []);
 
   if (isLoading) {
     return (
