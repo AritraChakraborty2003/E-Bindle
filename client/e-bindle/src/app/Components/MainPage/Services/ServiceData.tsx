@@ -6,4 +6,5 @@ export interface ServiceData {
   icon: string;
   bgColor: string;
   delay: number;
+  link: string;
 }

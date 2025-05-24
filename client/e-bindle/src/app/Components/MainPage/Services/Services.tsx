@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unescaped-entities */
 // components/services/MainService.tsx
 "use client";
 import React from "react";
 import { ServiceData } from "./ServiceData";
 import ServiceCard from "./ServiceCard";
+import Link from "next/link";
 
 const Services: React.FC = () => {
   // Updated service data with equal-length descriptions
@@ -16,6 +18,7 @@ const Services: React.FC = () => {
       icon: "SaaS.png",
       bgColor: "#b3e3c2", // Green
       delay: 0.3,
+      link: "/customsaas",
     },
     {
       id: 2,
@@ -25,6 +28,7 @@ const Services: React.FC = () => {
       icon: "web-dev.png",
       bgColor: "#b8f5ff", // Light pink/white
       delay: 0.4,
+      link: "/webdevelopment",
     },
     {
       id: 3,
@@ -34,6 +38,7 @@ const Services: React.FC = () => {
       icon: "IOT.png",
       bgColor: "#fff5ef", // Light orange
       delay: 0.5,
+      link: "/iot",
     },
     {
       id: 4,
@@ -43,6 +48,7 @@ const Services: React.FC = () => {
       icon: "AI_ML.png",
       bgColor: "#0950d5", // Blue
       delay: 0.4,
+      link: "/AIMLAnalytics",
     },
     {
       id: 5,
@@ -52,6 +58,7 @@ const Services: React.FC = () => {
       icon: "app-dev.png",
       bgColor: "#f8f0ff", // Light purple
       delay: 0.3,
+      link: "/appdevelopment",
     },
   ];
 
@@ -80,7 +87,9 @@ const Services: React.FC = () => {
         <div className="flex flex-wrap -mx-4 lg:ml-[6vmin] mb-8">
           {firstRowServices.map((service) => (
             <div key={service.id} className="w-full md:w-[45%] p-4">
-              <ServiceCard service={service} />
+              <Link href={service.link}>
+                <ServiceCard service={service} />
+              </Link>
             </div>
           ))}
         </div>
@@ -88,8 +97,10 @@ const Services: React.FC = () => {
         {/* Second row - 3 cards */}
         <div className="flex flex-wrap -mx-4">
           {secondRowServices.map((service) => (
-            <div key={service.id} className="w-full sm:w-1/2 lg:w-1/3 p-4">
-              <ServiceCard service={service} />
+            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+              <Link key={service.id} href={service.link}>
+                <ServiceCard service={service} />
+              </Link>
             </div>
           ))}
         </div>
